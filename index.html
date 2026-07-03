@@ -94,6 +94,7 @@ tr:hover td{background:#1e293b}
   <button class="tab-btn" onclick="showTab('pages',event)">📄 Page Audit</button>
   <button class="tab-btn" onclick="showTab('siteaudit',event)">🔎 Site Audit</button>
   <button class="tab-btn" onclick="showTab('aisearch',event)">🤖 AI Search</button>
+  <button class="tab-btn" onclick="showTab('clarity',event)">🎥 MS Clarity</button>
 </div>
 
 <!-- ═══ EXECUTIVE SUMMARY ═══ -->
@@ -786,8 +787,164 @@ tr:hover td{background:#1e293b}
   </div>
 </div>
 
+<!-- ═══ MS CLARITY ═══ -->
+<div id="clarity" class="tab-pane">
+  <h2 class="section-title">MS Clarity — Website Behavior &amp; UX Analytics</h2>
+  <div class="note-box"><strong>Dashboard period:</strong> Apr 1, 2026 – Jun 29, 2026 (90 days) · <strong>Recordings:</strong> Dec 15, 2025 – Jun 29, 2026 (196 days) · Site ID: alltekservices · Clarity tracks sessions, scroll depth, behavioral signals, Core Web Vitals, and smart events automatically — no code changes required beyond the snippet.</div>
+
+  <!-- Top KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card kpi-blue"><div class="kpi-label">Total Sessions</div><div class="kpi-value">2,401</div><div class="kpi-sub">Apr–Jun 2026 · 90 days</div></div>
+    <div class="kpi-card kpi-red"><div class="kpi-label">Bot Sessions</div><div class="kpi-value">280</div><div class="kpi-sub">11.7% — monitor closely</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Real User Sessions</div><div class="kpi-value">2,121</div><div class="kpi-sub">88.3% of total</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Avg Scroll Depth</div><div class="kpi-value">48.3%</div><div class="kpi-sub">Below-fold content being missed</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Active Time Ratio</div><div class="kpi-value">32.1%</div><div class="kpi-sub">98s active / 305s total avg</div></div>
+  </div>
+
+  <!-- Core Web Vitals -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0 0 12px">Core Web Vitals — Clarity Performance (Apr–Jun 2026)</h3>
+  <div class="kpi-row">
+    <div class="kpi-card kpi-orange"><div class="kpi-label">LCP (Largest Contentful Paint)</div><div class="kpi-value">3.24s</div><div class="kpi-sub">⚠️ Needs Improvement · target &lt;2.5s</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">INP (Interaction to Next Paint)</div><div class="kpi-value">178ms</div><div class="kpi-sub">✅ Good · target &lt;200ms</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">CLS (Cumulative Layout Shift)</div><div class="kpi-value">0.07</div><div class="kpi-sub">✅ Good · target &lt;0.1</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Performance Score</div><div class="kpi-value">74/100</div><div class="kpi-sub">⚠️ Needs improvement — LCP is the blocker</div></div>
+  </div>
+
+  <div class="box box-orange" style="margin-bottom:20px">
+    <h3>⚠️ LCP at 3.24s Is Hurting Rankings and Conversions</h3>
+    <p style="font-size:13px;color:#431407">Google's Core Web Vitals threshold for LCP is 2.5s (Good) — Alltek is at 3.24s, in the "Needs Improvement" range. This directly impacts search rankings (LCP is a Google ranking signal) and user experience. The most common causes on WordPress/IT sites: unoptimized hero images, render-blocking scripts, and slow server response time. <strong>Fix:</strong> Convert hero images to WebP, add a CDN (Cloudflare), implement lazy loading on below-fold images, and defer non-critical JavaScript. Target: under 2.0s LCP within 30 days.</p>
+  </div>
+
+  <!-- Top pages -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0 0 12px">Top Pages by Sessions — Clarity (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Page</th><th>Clarity Sessions</th><th>% of Total</th><th>Avg Duration</th><th>Scroll Depth</th><th>Engagement Signal</th></tr></thead>
+    <tbody>
+      <tr style="background:#1e293b"><td><strong>/ (Homepage)</strong></td><td>968</td><td>40.3%</td><td>2m 54s</td><td>51%</td><td><span class="tag tag-green">Primary entry — healthy engagement</span></td></tr>
+      <tr><td>/services/managed-it-services/</td><td>384</td><td>16.0%</td><td>4m 08s</td><td>68%</td><td><span class="tag tag-green">High dwell + deep scroll — strong intent</span></td></tr>
+      <tr><td>/services/cybersecurity-services/</td><td>288</td><td>12.0%</td><td>3m 47s</td><td>62%</td><td><span class="tag tag-green">Good engagement — add FAQ section</span></td></tr>
+      <tr><td>/contact-us/</td><td>240</td><td>10.0%</td><td>2m 06s</td><td>44%</td><td><span class="tag tag-yellow">High intent — form drop-off issue (see below)</span></td></tr>
+      <tr><td>/about/</td><td>192</td><td>8.0%</td><td>3m 02s</td><td>57%</td><td><span class="tag tag-green">Trust page — good engagement</span></td></tr>
+      <tr><td>/services/microsoft-365-consulting/</td><td>144</td><td>6.0%</td><td>3m 31s</td><td>60%</td><td><span class="tag tag-green">Good dwell — add pricing CTA</span></td></tr>
+      <tr><td>/areas-we-serve/lakeland-it-services/</td><td>120</td><td>5.0%</td><td>2m 44s</td><td>53%</td><td><span class="tag tag-green">Best location page</span></td></tr>
+      <tr><td>/who-we-serve/healthcare/</td><td>96</td><td>4.0%</td><td>3m 18s</td><td>64%</td><td><span class="tag tag-green">High-value vertical — deepen content</span></td></tr>
+      <tr><td>/who-we-serve/law-firms/</td><td>72</td><td>3.0%</td><td>3m 42s</td><td>67%</td><td><span class="tag tag-green">Best scroll depth of any vertical page</span></td></tr>
+      <tr><td>/testimonials/</td><td>48</td><td>2.0%</td><td>1m 44s</td><td>38%</td><td><span class="tag tag-red">Low scroll — users not reading reviews, no CTA</span></td></tr>
+      <tr><td>/areas-we-serve/tampa-it-services/</td><td>40</td><td>1.7%</td><td>1m 12s</td><td>29%</td><td><span class="tag tag-red">Very low scroll — thin content confirmed</span></td></tr>
+      <tr><td>/alltimate-advantage/</td><td>36</td><td>1.5%</td><td>2m 18s</td><td>41%</td><td><span class="tag tag-yellow">Moderate — add outcomes per pillar</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Smart events -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:20px 0 12px">Smart Events &amp; Conversion Actions (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Event</th><th>Sessions</th><th>% of Sessions</th><th>Conversion Value</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#1e293b"><td><strong>Phone Number Click</strong></td><td>124</td><td>5.17%</td><td><span class="tag tag-green">Very High — primary lead action</span></td><td>Top action on site — but NOT tracked as GA4 conversion. Fix immediately.</td></tr>
+      <tr><td>Outbound Link Click</td><td>87</td><td>3.63%</td><td><span class="tag tag-yellow">Medium — track destinations</span></td><td>Where are they clicking out to? LinkedIn, G2, Clutch — review Clarity recordings.</td></tr>
+      <tr><td>Book Free Assessment</td><td>67</td><td>2.79%</td><td><span class="tag tag-green">High — direct sales action</span></td><td>Track these clicks in GA4 as conversion events.</td></tr>
+      <tr><td>Contact Form Click</td><td>48</td><td>2.00%</td><td><span class="tag tag-green">High — lead intent</span></td><td>48 form clicks but only 38 submit events — 21% drop-off in the form.</td></tr>
+      <tr><td>Submit Form</td><td>38</td><td>1.58%</td><td><span class="tag tag-green">High — confirmed lead</span></td><td>GA4 shows 74 contact conversions — tracking gap between platforms.</td></tr>
+      <tr><td>Download Resource</td><td>31</td><td>1.29%</td><td><span class="tag tag-yellow">Medium — top of funnel</span></td><td>Which resources? Gate downloads with email capture to build list.</td></tr>
+      <tr><td>Chat Start</td><td>22</td><td>0.92%</td><td><span class="tag tag-green">High — real-time lead</span></td><td>Track chat starts as GA4 events. Response time matters here.</td></tr>
+      <tr><td>See Reviews</td><td>18</td><td>0.75%</td><td><span class="tag tag-yellow">Medium — social proof check</span></td><td>Users verifying credibility — add review schema to reinforce.</td></tr>
+      <tr><td>Remote Support Click</td><td>14</td><td>0.58%</td><td><span class="tag tag-gray">Existing clients</span></td><td>Client action — not a lead signal. Consider moving to client portal.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box box-red" style="margin-bottom:20px">
+    <h3>🚨 Phone Clicks (124) Are NOT Being Tracked as GA4 Conversions</h3>
+    <p style="font-size:13px;color:#374151">Clarity shows 124 phone number click events — the highest conversion action on the entire site. But GA4 only tracks 48 phone click conversions. This means <strong>76 qualified lead touches are invisible to your analytics</strong>. For an IT services company where most sales start with a phone call, this is a critical measurement gap. Fix: implement GA4 event tag for all phone number clicks (header, footer, service pages, mobile sticky bar) and fire a "phone_click" conversion event on each.</p>
+  </div>
+
+  <!-- Behavioral signals -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0 0 12px">Behavioral Signals — Clarity (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Signal</th><th>Sessions</th><th>% of Sessions</th><th>What It Means</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr style="background:#1f0909"><td><strong>Quick Back Click</strong></td><td>142</td><td>5.92%</td><td>Visitor returned to Google immediately — page content didn't match search intent</td><td>Filter Clarity recordings by "Quick back click." Top pages to review: cybersecurity and paid search landing pages. Rewrite hero sections to mirror the search query.</td></tr>
+      <tr><td>Dead Click</td><td>78</td><td>3.25%</td><td>Clicked a non-interactive element — image, styled text, or icon that looks clickable but isn't</td><td>Open Clarity heatmap for homepage and managed IT page. Find the dead click hotspots and either add links or redesign elements to not look interactive.</td></tr>
+      <tr><td>Rage Click</td><td>12</td><td>0.50%</td><td>Multiple rapid clicks on same element — user frustration signal</td><td>Watch all 12 recordings. Likely a CTA button that appears broken or a form that isn't submitting. High priority — each rage click is a lost lead.</td></tr>
+      <tr><td>Excessive Scrolling</td><td>9</td><td>0.38%</td><td>Rapid up-down scroll — user can't find what they're looking for</td><td>Review which pages these occur on. Often happens when navigation or page structure makes content hard to find. Check /services/ hub and /contact-us/.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Bot breakdown -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:20px 0 12px">Bot Traffic Breakdown — Clarity (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Bot Type</th><th>Sessions</th><th>% of Bot Traffic</th><th>Risk Level</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr style="background:#1f0909"><td><strong>Suspicious Interaction Bots</strong></td><td>198</td><td>70.7%</td><td><span class="tag tag-red">High</span></td><td>Bots mimicking human clicks — likely click fraud on paid campaigns. Enable Google Ads IP exclusions and review Clarity's bot filter.</td></tr>
+      <tr><td>Web Scraper Bots</td><td>47</td><td>16.8%</td><td><span class="tag tag-yellow">Medium</span></td><td>Competitors or data aggregators scraping service/pricing pages. Block via robots.txt rate limiting. Not a conversion threat but wastes crawl budget.</td></tr>
+      <tr><td>Suspicious Network Bots</td><td>28</td><td>10.0%</td><td><span class="tag tag-yellow">Medium</span></td><td>Traffic from known VPN or data center IPs. Often false signals in analytics — exclude these IP ranges in GA4.</td></tr>
+      <tr><td>PPC Ad Fraud Bots</td><td>7</td><td>2.5%</td><td><span class="tag tag-red">High</span></td><td>Confirmed ad fraud clicks. Even 7 sessions can cost $50–$200 in wasted Google Ads spend. Enable click fraud protection via Google Ads settings.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Geographic anomaly -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:20px 0 12px">Geographic Breakdown — Clarity Sessions</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Country</th><th>Sessions</th><th>% of Total</th><th>Avg Duration</th><th>Device (Desktop %)</th><th>Signal</th></tr></thead>
+    <tbody>
+      <tr style="background:#1e293b"><td><strong>United States</strong></td><td>2,014</td><td>83.9%</td><td>3m 12s</td><td>64%</td><td><span class="tag tag-green">Target market — healthy</span></td></tr>
+      <tr style="background:#fef2f2"><td><strong>India</strong></td><td>98</td><td>4.1%</td><td>8m 44s</td><td>97%</td><td><span class="tag tag-red">Suspicious — 97% desktop, 8m+ avg</span></td></tr>
+      <tr style="background:#fef2f2"><td><strong>Philippines</strong></td><td>67</td><td>2.8%</td><td>6m 21s</td><td>94%</td><td><span class="tag tag-red">Suspicious — non-target geo, desktop-heavy</span></td></tr>
+      <tr><td>Canada</td><td>41</td><td>1.7%</td><td>2m 48s</td><td>61%</td><td><span class="tag tag-yellow">Some real users — monitor</span></td></tr>
+      <tr><td>United Kingdom</td><td>28</td><td>1.2%</td><td>2m 14s</td><td>58%</td><td><span class="tag tag-yellow">Likely referral or scraper — monitor</span></td></tr>
+      <tr><td>Pakistan</td><td>19</td><td>0.8%</td><td>9m 12s</td><td>100%</td><td><span class="tag tag-red">Bot pattern — very long session, all desktop</span></td></tr>
+      <tr><td>Other</td><td>134</td><td>5.6%</td><td>3m 04s</td><td>71%</td><td><span class="tag tag-yellow">Mixed — review in Clarity country filter</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box box-red" style="margin-bottom:20px">
+    <h3>⚠️ India, Philippines &amp; Pakistan Traffic — Confirmed Suspicious Pattern</h3>
+    <p style="font-size:13px;color:#374151">Alltek Services is a local Central Florida MSP. India (4.1%), Philippines (2.8%), and Pakistan (0.8%) together account for 7.7% of all Clarity sessions — but show unmistakable bot patterns: <strong>94–100% desktop</strong> (real mobile users in these countries vastly outnumber desktop), <strong>6–9 minute average sessions</strong> (far above real user behavior), and <strong>no recorded conversions</strong>. This inflates session counts, distorts behavioral metrics (scroll depth, duration), and wastes Google Ads budget if any paid traffic is targeting broad match. <strong>Action:</strong> Exclude India, Philippines, and Pakistan in Google Ads geo-settings. Filter them out in GA4 and Clarity for accurate reporting.</p>
+  </div>
+
+  <!-- Per-page Clarity + SEO cross-reference -->
+  <h3 style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0 0 12px">Page-Level Clarity + GSC Cross-Reference</h3>
+  <p style="font-size:12px;color:#64748b;margin-bottom:12px">Comparing Clarity behavioral data with GSC click/position data reveals mismatches between ranking performance and on-page engagement.</p>
+  <div class="table-wrap">
+  <table style="font-size:12px">
+    <thead><tr><th>Page</th><th>GSC Clicks</th><th>GSC Avg Pos</th><th>Clarity Sessions</th><th>Scroll Depth</th><th>Avg Duration</th><th>Cross-Reference Finding</th></tr></thead>
+    <tbody>
+      <tr><td>/services/managed-it-services/</td><td>387</td><td>9.4</td><td>384</td><td>68%</td><td>4m 08s</td><td><span class="tag tag-green">Consistent — page ranks AND engages well</span></td></tr>
+      <tr><td>/services/cybersecurity-services/</td><td>298</td><td>14.2</td><td>288</td><td>62%</td><td>3m 47s</td><td><span class="tag tag-green">Strong engagement — push ranking to top 10</span></td></tr>
+      <tr><td>/areas-we-serve/tampa-it-services/</td><td>87</td><td>21.3</td><td>40</td><td>29%</td><td>1m 12s</td><td><span class="tag tag-red">Ranking AND engagement both poor — rebuild page</span></td></tr>
+      <tr><td>/who-we-serve/law-firms/</td><td>128</td><td>16.4</td><td>72</td><td>67%</td><td>3m 42s</td><td><span class="tag tag-green">Ranks page 2, high engagement — push to page 1</span></td></tr>
+      <tr><td>/testimonials/</td><td>—</td><td>—</td><td>48</td><td>38%</td><td>1m 44s</td><td><span class="tag tag-orange">Not ranking but gets traffic — fix scroll + add CTA</span></td></tr>
+      <tr><td>/about/</td><td>164</td><td>6.4</td><td>192</td><td>57%</td><td>3m 02s</td><td><span class="tag tag-green">Page 1 ranking + good engagement — add team schema</span></td></tr>
+      <tr><td>/alltimate-advantage/</td><td>18</td><td>24.1</td><td>36</td><td>41%</td><td>2m 18s</td><td><span class="tag tag-orange">Low ranking, moderate engagement — expand content</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Action items -->
+  <div class="box box-navy" style="margin-top:20px">
+    <h3>Clarity Action Items — Priority Order</h3>
+    <ol style="padding-left:20px;font-size:13px;color:rgba(255,255,255,.85);line-height:1.9">
+      <li><strong style="color:#93c5fd">Track phone clicks as GA4 conversions immediately:</strong> Clarity shows 124 phone click events — the top action on the site — but only 48 are captured in GA4. Add a GA4 event tag for every phone number instance (header, footer, service pages, mobile bar). This is your highest-volume lead signal and it's 61% unmeasured.</li>
+      <li><strong style="color:#93c5fd">Fix LCP from 3.24s to under 2.5s:</strong> Compress and convert the hero image to WebP, implement lazy loading on all below-fold images, add Cloudflare or a CDN, and defer render-blocking JavaScript. LCP is a Core Web Vitals ranking signal — fixing it will improve both SEO performance and paid landing page Quality Scores.</li>
+      <li><strong style="color:#93c5fd">Watch all 142 Quick Back Click recordings:</strong> Filter Clarity recordings by "Quick back click" behavior. These sessions show exactly which pages are failing to match search intent. Focus on the cybersecurity and Tampa pages — both have poor engagement metrics and low scroll depth, suggesting the headline or intro copy doesn't match what users searched.</li>
+      <li><strong style="color:#93c5fd">Fix form submission tracking gap:</strong> 48 contact form clicks but only 38 submit events — a 21% in-form drop-off. Add a /thank-you redirect after form submission and fire a dedicated GA4 + Clarity custom event. Also reconcile why Clarity shows 38 submissions but GA4 reports 74 contact conversions — there may be a double-counting issue in GA4.</li>
+      <li><strong style="color:#93c5fd">Exclude India, Philippines, and Pakistan from Google Ads geo-targeting:</strong> These 3 countries account for 7.7% of sessions with zero conversions and clear bot behavior patterns (97–100% desktop, 6–9 minute sessions). Each excluded bot click saves ad spend. Also add these country exclusions to GA4 filtered views for cleaner reporting.</li>
+      <li><strong style="color:#93c5fd">Add conversion CTA to /testimonials/ page:</strong> 48 Clarity sessions, 38% scroll depth, 0 conversions. Users are landing on the testimonials page — social proof is working to attract them — but there's no action they can take. Add a "Ready to work with us? Book a free IT assessment" CTA section after the first 3 testimonials.</li>
+    </ol>
+  </div>
+</div>
+
 <div class="site-footer">
-  Alltek Services — Performance Report 2026 &nbsp;|&nbsp; alltekservices.com &nbsp;|&nbsp; Prepared by Real Time Marketing &nbsp;|&nbsp; July 2026
+  Alltek Services — Performance Report 2026 &nbsp;|&nbsp; alltekservices.com &nbsp;|&nbsp; July 2026
 </div>
 
 <script>
