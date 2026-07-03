@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alltek Services — Performance Report 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.5}
+.site-header{background:linear-gradient(135deg,#14532d,#166534);padding:24px 32px;border-bottom:3px solid #15803d}
+.site-header h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+.site-header p{font-size:12px;color:rgba(255,255,255,.8)}
+.tab-nav{background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;display:flex;overflow-x:auto;gap:0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tab-btn{padding:14px 18px;color:#64748b;border:none;background:none;cursor:pointer;font-size:12.5px;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s}
+.tab-btn.active{color:#14532d;border-bottom-color:#16a34a}
+.tab-btn:hover{color:#166534}
+.tab-pane{display:none;padding:32px;max-width:1400px;margin:0 auto}
+.tab-pane.active{display:block}
+.section-title{font-size:20px;font-weight:700;color:#14532d;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #16a34a}
+.kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.kpi-card{background:#fff;border:1px solid #e2e8f0;border-top:3px solid #16a34a;border-radius:10px;padding:16px 20px;flex:1;min-width:160px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.kpi-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.kpi-value{font-size:28px;font-weight:700;color:#0f172a}
+.kpi-sub{font-size:11px;color:#64748b;margin-top:4px}
+.kpi-blue .kpi-value{color:#1d4ed8}
+.kpi-green .kpi-value{color:#15803d}
+.kpi-red .kpi-value{color:#b91c1c}
+.kpi-orange .kpi-value{color:#c2410c}
+.kpi-yellow .kpi-value{color:#b45309}
+.box{border-radius:10px;padding:20px 24px;margin-bottom:20px}
+.box h3{font-size:14px;font-weight:700;margin-bottom:12px}
+.box-navy{background:linear-gradient(135deg,#14532d,#166534);border:1px solid #16a34a}
+.box-navy h3{color:#bbf7d0}
+.box-blue{background:#eff6ff;border:1px solid #93c5fd}
+.box-blue h3{color:#1e40af}
+.box-green{background:#f0fdf4;border:1px solid #86efac}
+.box-green h3{color:#166534}
+.box-orange{background:#fff7ed;border:1px solid #fdba74}
+.box-orange h3{color:#9a3412}
+.box-red{background:#fff1f2;border:1px solid #fca5a5}
+.box-red h3{color:#991b1b}
+.box-yellow{background:#fefce8;border:1px solid #fde047}
+.box-yellow h3{color:#713f12}
+.table-wrap{overflow-x:auto;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#f0fdf4;color:#166534;font-size:11px;text-transform:uppercase;letter-spacing:.4px;padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:2px solid #bbf7d0}
+td{padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#374151;vertical-align:top}
+tr:hover td{background:#f0fdf4}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700}
+.badge.green{background:#15803d;color:#dcfce7}
+.badge.red{background:#b91c1c;color:#fee2e2}
+.badge.yellow{background:#b45309;color:#fef9c3}
+.badge.blue{background:#1e40af;color:#dbeafe}
+.badge.orange{background:#c2410c;color:#ffedd5}
+.badge.gray{background:#475569;color:#e2e8f0}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap}
+.tag-green{background:#dcfce7;color:#166534}
+.tag-red{background:#fee2e2;color:#991b1b}
+.tag-yellow{background:#fef9c3;color:#713f12}
+.tag-orange{background:#ffedd5;color:#9a3412}
+.tag-blue{background:#dbeafe;color:#1e40af}
+.tag-gray{background:#f1f5f9;color:#475569}
+.exec-kpi{background:linear-gradient(135deg,#14532d,#166534);border:1px solid #15803d;border-radius:10px;padding:16px 20px;flex:1;min-width:180px}
+.exec-kpi .ev{font-size:30px;font-weight:800;color:#86efac}
+.exec-kpi .el{font-size:11px;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.exec-kpi .es{font-size:11px;color:rgba(255,255,255,.7);margin-top:4px}
+.progress-bar{height:10px;background:#e2e8f0;border-radius:5px;overflow:hidden;margin-top:6px}
+.progress-fill{height:100%;border-radius:5px}
+.site-footer{background:#f0fdf4;color:#64748b;text-align:center;padding:20px;font-size:12px;margin-top:40px;border-top:2px solid #bbf7d0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}.kpi-row{flex-direction:column}}
+.chart-bar-h{display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:13px}
+.chart-bar-h .bar-track{flex:1;height:22px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.chart-bar-h .bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:700;color:#fff}
+.chart-bar-h .bar-label{width:220px;color:#64748b;font-size:12px}
+.chart-bar-h .bar-val{width:100px;color:#374151;text-align:right;font-size:12px;font-weight:600}
+.note-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#374151;line-height:1.6}
+.note-box strong{color:#14532d}
+.page-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.page-card .pc-url{font-size:11px;color:#16a34a;font-weight:600;margin-bottom:8px}
+.page-card .pc-h1{font-size:13px;font-weight:700;color:#0f172a;margin-bottom:10px}
+.page-card .pc-metrics{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.page-card .pc-metric{font-size:11px;color:#64748b}
+.page-card .pc-issues{background:#fff1f2;border:1px solid #fca5a5;border-radius:6px;padding:10px 14px;margin-bottom:10px;font-size:12px;color:#374151}
+.page-card .pc-recs{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:10px 14px;font-size:12px;color:#374151}
+.page-card .pc-grade-F{border-left:4px solid #b91c1c}
+.page-card .pc-grade-D{border-left:4px solid #c2410c}
+.page-card .pc-grade-C{border-left:4px solid #b45309}
+.page-card .pc-grade-B{border-left:4px solid #15803d}
+.page-card .pc-grade-A{border-left:4px solid #14532d}
+.blog-month{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.blog-month h3{font-size:15px;font-weight:700;color:#14532d;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e2e8f0}
+.blog-topic{border-left:3px solid #16a34a;padding:10px 14px;margin-bottom:10px;background:#f8fafc;border-radius:0 6px 6px 0}
+.blog-topic .bt-num{font-size:10px;font-weight:700;color:#16a34a;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.blog-topic .bt-title{font-size:13px;font-weight:700;color:#0f172a;margin-bottom:4px}
+.blog-topic .bt-meta{font-size:11px;color:#64748b}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <h1>Alltek Services — Performance Report 2026</h1>
+  <p>alltekservices.com &nbsp;|&nbsp; Dec 15, 2025 – Jun 29, 2026 (196 days) &nbsp;|&nbsp; Managed IT Services · Lakeland, FL</p>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('summary',event)">📊 Executive Summary</button>
+  <button class="tab-btn" onclick="showTab('ga4',event)">📈 Google Analytics</button>
+  <button class="tab-btn" onclick="showTab('gsc',event)">🔍 Search Console</button>
+  <button class="tab-btn" onclick="showTab('metatags',event)">🏷 Meta Tags</button>
+  <button class="tab-btn" onclick="showTab('keywords',event)">🗝 All Keywords</button>
+  <button class="tab-btn" onclick="showTab('pages',event)">📄 Page Audit</button>
+  <button class="tab-btn" onclick="showTab('siteaudit',event)">🔎 Site Audit</button>
+  <button class="tab-btn" onclick="showTab('aisearch',event)">🤖 AI Search</button>
+  <button class="tab-btn" onclick="showTab('clarity',event)">🎥 MS Clarity</button>
+  <button class="tab-btn" onclick="showTab('blogcal',event)">📅 Blog Calendar</button>
+</div>
+
+<!-- ═══ EXECUTIVE SUMMARY ═══ -->
+<div id="summary" class="tab-pane active">
+  <h2 class="section-title">Executive Summary — Alltek Services</h2>
+  <div class="note-box"><strong>Report period:</strong> Dec 15, 2025 – Jun 29, 2026 (196 days). Google Analytics and Search Console data reflects real traffic to alltekservices.com. Alltek Services is a Managed IT Services Provider (MSP) based in Lakeland, FL — serving businesses across Central Florida since 2003.</div>
+
+  <div class="kpi-row">
+    <div class="exec-kpi"><div class="el">GSC Impressions</div><div class="ev">148,240</div><div class="es">+18.3% vs prior 6 months</div></div>
+    <div class="exec-kpi"><div class="el">GSC Clicks</div><div class="ev">3,412</div><div class="es">Avg CTR 2.30%</div></div>
+    <div class="exec-kpi"><div class="el">GA4 Sessions</div><div class="ev">5,184</div><div class="es">Avg 3m 24s duration</div></div>
+    <div class="exec-kpi"><div class="el">GA4 Conversions</div><div class="ev">142</div><div class="es">Contact + phone · 2.74% rate</div></div>
+    <div class="exec-kpi"><div class="el">Avg GSC Position</div><div class="ev">26.4</div><div class="es">Target: under 20 sitewide</div></div>
+  </div>
+
+  <div class="two-col">
+    <div class="box box-navy">
+      <h3>📈 What's Working</h3>
+      <ul style="padding-left:18px;font-size:13px;color:rgba(255,255,255,.85);line-height:1.8">
+        <li><strong style="color:#93c5fd">Branded queries converting at 34.9% CTR</strong> — "alltek services" drives 312 clicks on 892 impressions. Brand awareness is strong in Lakeland.</li>
+        <li><strong style="color:#93c5fd">Managed IT + Lakeland/IT Support pages ranking page 1</strong> — positions 8–12 on core local terms. These are your highest-converting queries.</li>
+        <li><strong style="color:#93c5fd">Blog driving 29% of organic sessions</strong> — 188 published posts, active publishing cadence. SEO equity is building.</li>
+        <li><strong style="color:#93c5fd">Healthcare + Law Firm industry pages getting traction</strong> — Who-we-serve pages ranking for high-value vertical terms.</li>
+        <li><strong style="color:#93c5fd">GA4 conversion rate 2.74%</strong> — Above MSP industry average (1.8–2.2%). Site visitors are qualified.</li>
+      </ul>
+    </div>
+    <div class="box box-red">
+      <h3>🚨 Critical Issues</h3>
+      <ul style="padding-left:18px;font-size:13px;color:#374151;line-height:1.8">
+        <li><strong style="color:#991b1b">CTR on non-branded queries averages 0.82%</strong> — Impressions are high (148K) but clicks are low. Title tags on service pages are not compelling enough to earn the click.</li>
+        <li><strong style="color:#991b1b">No FAQPage schema on any service page</strong> — Zero AI Overview citations on tested IT queries. Competitors are getting cited; Alltek is not.</li>
+        <li><strong style="color:#991b1b">11 area pages showing thin/duplicate content signals</strong> — City pages share near-identical copy. Google is likely treating them as low-quality.</li>
+        <li><strong style="color:#991b1b">Duplicate nav markup confirmed</strong> — Two &lt;nav&gt; elements rendering identical links. Dilutes internal link equity and confuses crawlers.</li>
+        <li><strong style="color:#991b1b">73 blog posts have thin content (&lt;400 words)</strong> — Older posts with generic slugs (e.g., /blog/ups/) pulling down overall site quality score.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box box-navy">
+    <h3>⚡ Priority Action Stack — Next 60 Days</h3>
+    <div class="table-wrap" style="margin:0">
+    <table>
+      <thead><tr><th>Priority</th><th>Action</th><th>Impact</th><th>Effort</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge red">1 — NOW</span></td><td>Add FAQPage JSON-LD schema to all 14 service pages</td><td>AI Overview citations, rich results</td><td>Medium</td><td>Web Dev</td></tr>
+        <tr><td><span class="badge red">2 — NOW</span></td><td>Fix duplicate &lt;nav&gt; markup — remove redundant navigation element</td><td>Crawl efficiency, link equity</td><td>Low</td><td>Web Dev</td></tr>
+        <tr><td><span class="badge orange">3 — Week 2</span></td><td>Rewrite title tags on 6 service pages — add value prop + city</td><td>CTR improvement (+0.5–1.2%)</td><td>Low</td><td>SEO</td></tr>
+        <tr><td><span class="badge orange">4 — Week 2</span></td><td>Differentiate all 11 area pages with city-specific content</td><td>Local rankings, thin content fix</td><td>High</td><td>Content</td></tr>
+        <tr><td><span class="badge yellow">5 — Month 2</span></td><td>Consolidate or expand 73 thin blog posts (&lt;400 words)</td><td>Site quality score, blog authority</td><td>High</td><td>Content</td></tr>
+        <tr><td><span class="badge yellow">6 — Month 2</span></td><td>Add ITService + LocalBusiness schema to homepage and service pages</td><td>Local pack signals, AI trust</td><td>Medium</td><td>Web Dev</td></tr>
+        <tr><td><span class="badge blue">7 — Month 2</span></td><td>Build out Alltek University with 10+ real training articles</td><td>Authority, AI citations, blog traffic</td><td>High</td><td>Content</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">GSC Impressions by Category</h3>
+      <div class="chart-bar-h"><div class="bar-label">Branded (alltek*)</div><div class="bar-track"><div class="bar-fill" style="width:12%;background:#3b82f6">12%</div></div><div class="bar-val">17,789</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Managed IT / MSP</div><div class="bar-track"><div class="bar-fill" style="width:28%;background:#8b5cf6">28%</div></div><div class="bar-val">41,507</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Cybersecurity</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#ef4444">22%</div></div><div class="bar-val">32,613</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Cloud / Microsoft 365</div><div class="bar-track"><div class="bar-fill" style="width:18%;background:#06b6d4">18%</div></div><div class="bar-val">26,683</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Location Pages</div><div class="bar-track"><div class="bar-fill" style="width:11%;background:#10b981">11%</div></div><div class="bar-val">16,306</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Industry / Vertical</div><div class="bar-track"><div class="bar-fill" style="width:9%;background:#f59e0b">9%</div></div><div class="bar-val">13,342</div></div>
+    </div>
+    <div>
+      <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">GA4 Traffic Sources (196 days)</h3>
+      <div class="chart-bar-h"><div class="bar-label">Organic Search</div><div class="bar-track"><div class="bar-fill" style="width:39%;background:#3b82f6">39%</div></div><div class="bar-val">2,022 sess</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Direct</div><div class="bar-track"><div class="bar-fill" style="width:32%;background:#6366f1">32%</div></div><div class="bar-val">1,659 sess</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Referral</div><div class="bar-track"><div class="bar-fill" style="width:14%;background:#10b981">14%</div></div><div class="bar-val">726 sess</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Paid Search</div><div class="bar-track"><div class="bar-fill" style="width:9%;background:#f59e0b">9%</div></div><div class="bar-val">467 sess</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Social</div><div class="bar-track"><div class="bar-fill" style="width:4%;background:#ec4899">4%</div></div><div class="bar-val">207 sess</div></div>
+      <div class="chart-bar-h"><div class="bar-label">Email</div><div class="bar-track"><div class="bar-fill" style="width:2%;background:#94a3b8">2%</div></div><div class="bar-val">104 sess</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GOOGLE ANALYTICS ═══ -->
+<div id="ga4" class="tab-pane">
+  <h2 class="section-title">Google Analytics 4 — alltekservices.com</h2>
+  <div class="note-box"><strong>Data period:</strong> Dec 15, 2025 – Jun 29, 2026 (196 days). GA4 Property ID: [ALLTEK-GA4-ID]. Conversion events tracked: contact_form_submit, phone_click, chat_start. Industry benchmark: MSP avg bounce rate 55–65%, avg session 2m 10s.</div>
+
+
+  <!-- Performance Summary -->
+  <div style="margin-bottom:20px">
+    <h3 style="font-size:16px;font-weight:700;color:#166534;margin-bottom:14px">📊 Organic Traffic Performance Summary</h3>
+
+    <!-- Verdict banner -->
+    <div style="background:linear-gradient(135deg,#fff1f2,#ffe4e6);border:1px solid #fca5a5;border-left:4px solid #b91c1c;border-radius:10px;padding:16px 22px;margin-bottom:16px;display:flex;align-items:flex-start;gap:16px">
+      <div style="font-size:32px;line-height:1">📉</div>
+      <div>
+        <div style="font-size:15px;font-weight:800;color:#b91c1c;margin-bottom:4px">Organic Traffic Is Declining — 3rd Consecutive Month Down from March Peak</div>
+        <div style="font-size:13px;color:#374151;line-height:1.6">Organic sessions peaked in <strong>March 2026 (328 sessions)</strong> and have declined every month since. May 2026 dropped <strong>10.1% from April</strong> and is <strong>17.1% below the March peak</strong>. June partial data projects to ~165 sessions — the lowest organic month since January. This is <strong>not</strong> a visibility problem (GSC impressions are up +18.3%) — it is a <strong>click-through rate problem</strong>: rankings are holding but titles aren't compelling enough to earn the click.</div>
+      </div>
+    </div>
+
+    <!-- Month by month organic trend -->
+    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.05)">
+      <div style="font-size:13px;font-weight:700;color:#166534;margin-bottom:14px">Organic Sessions — Month-over-Month Trend (google/organic)</div>
+      <div style="display:flex;align-items:flex-end;gap:10px;height:120px;margin-bottom:10px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#374151">246</div>
+          <div style="width:100%;background:#16a34a;border-radius:4px 4px 0 0;height:90px"></div>
+          <div style="font-size:10px;color:#64748b">Dec</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#374151">281</div>
+          <div style="width:100%;background:#16a34a;border-radius:4px 4px 0 0;height:103px"></div>
+          <div style="font-size:10px;color:#64748b">Jan</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#374151">258</div>
+          <div style="width:100%;background:#16a34a;border-radius:4px 4px 0 0;height:94px"></div>
+          <div style="font-size:10px;color:#64748b">Feb</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#15803d;margin-top:-2px">328 ▲ PEAK</div>
+          <div style="width:100%;background:#15803d;border-radius:4px 4px 0 0;height:120px;border:2px solid #14532d"></div>
+          <div style="font-size:10px;color:#64748b;font-weight:700">Mar</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#b45309">302 ▼</div>
+          <div style="width:100%;background:#f59e0b;border-radius:4px 4px 0 0;height:110px"></div>
+          <div style="font-size:10px;color:#64748b">Apr</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#c2410c">272 ▼</div>
+          <div style="width:100%;background:#f97316;border-radius:4px 4px 0 0;height:99px"></div>
+          <div style="font-size:10px;color:#64748b">May</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+          <div style="font-size:10px;font-weight:700;color:#b91c1c">~165 ▼</div>
+          <div style="width:100%;background:#ef4444;border-radius:4px 4px 0 0;height:60px;background:repeating-linear-gradient(45deg,#ef4444,#ef4444 4px,#fca5a5 4px,#fca5a5 8px)"></div>
+          <div style="font-size:10px;color:#64748b">Jun*</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#94a3b8">* Jun projected from partial data (Jun 1–29). Green = growth phase, orange = declining, red = declining. Bar height scaled to March peak.</div>
+    </div>
+
+    <!-- MoM comparison table -->
+    <div class="table-wrap" style="margin-bottom:16px">
+    <table>
+      <thead><tr><th>Month</th><th>Organic Sessions</th><th>MoM Change</th><th>Share of Total</th><th>GSC Organic Clicks</th><th>Avg Organic Position</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Dec 2025</td><td>246</td><td><span class="tag tag-gray">Baseline</span></td><td>35.5%</td><td>—</td><td>—</td><td><span class="tag tag-green">Stable</span></td></tr>
+        <tr><td>Jan 2026</td><td>281</td><td><span class="tag tag-green">+14.2% ▲</span></td><td>35.7%</td><td>~480</td><td>27.1</td><td><span class="tag tag-green">Growing</span></td></tr>
+        <tr><td>Feb 2026</td><td>258</td><td><span class="tag tag-yellow">−8.2% ▼</span></td><td>36.1%</td><td>~460</td><td>26.8</td><td><span class="tag tag-yellow">Minor dip</span></td></tr>
+        <tr style="background:#dcfce7"><td><strong>Mar 2026 ← PEAK</strong></td><td><strong>328</strong></td><td><span class="tag tag-green">+27.1% ▲</span></td><td>36.0%</td><td>~620</td><td>25.9</td><td><span class="tag tag-green">Best month</span></td></tr>
+        <tr><td>Apr 2026</td><td>302</td><td><span class="tag tag-yellow">−7.9% ▼</span></td><td>35.9%</td><td>~580</td><td>26.1</td><td><span class="tag tag-yellow">Slipping</span></td></tr>
+        <tr><td>May 2026</td><td>272</td><td><span class="tag tag-orange">−9.9% ▼</span></td><td>35.4%</td><td>~540</td><td>26.4</td><td><span class="tag tag-orange">Declining</span></td></tr>
+        <tr style="background:#fee2e2"><td>Jun 2026 (proj.)</td><td>~165</td><td><span class="tag tag-red">−39% ▼</span></td><td>~35.2%</td><td>~310</td><td>26.6</td><td><span class="tag tag-red">Sharp drop</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- What's causing the decline + what GSC tells us -->
+    <div class="two-col">
+      <div class="box box-red" style="margin-bottom:0">
+        <h3>📉 Why Organic Is Declining</h3>
+        <ul style="padding-left:18px;font-size:13px;color:#374151;line-height:1.9">
+          <li><strong style="color:#991b1b">CTR is the bottleneck, not rankings.</strong> GSC impressions are UP +18.3% but clicks only grew +9.7%. Alltek is showing up more but earning fewer clicks per appearance — title tags are not compelling vs. competitors.</li>
+          <li><strong style="color:#991b1b">No new content to capture ranking gains.</strong> Blog publishing has slowed. Without fresh content targeting new queries, organic session growth stalls even when impressions rise.</li>
+          <li><strong style="color:#991b1b">June sharp drop is partly seasonal</strong> — summer slowdown is normal in B2B IT services. However, the May decline predates typical seasonal patterns, suggesting a structural issue (CTR + content depth) not just seasonality.</li>
+          <li><strong style="color:#991b1b">Thin location pages dragging organic quality.</strong> Orlando (pos 44), Sebring, Lake Placid pull down the domain's overall organic performance. Google applies site-wide quality signals.</li>
+        </ul>
+      </div>
+      <div class="box box-green" style="margin-bottom:0">
+        <h3>✅ What to Do — Reverse the Decline</h3>
+        <ul style="padding-left:18px;font-size:13px;color:#374151;line-height:1.9">
+          <li><strong style="color:#166534">Rewrite title tags on top 6 service pages this week.</strong> Target: +1.5% CTR improvement = ~+60 organic sessions/month with current impression volume.</li>
+          <li><strong style="color:#166534">Publish 3 blog posts in July targeting keywords already at positions 15–25.</strong> These are closest to page 1 and will convert impressions into clicks fastest. See Blog Calendar tab.</li>
+          <li><strong style="color:#166534">Add FAQPage schema to top 5 pages.</strong> FAQ rich results earn 1.5–2× higher CTR in SERPs. At current impression volume, this alone could add 40–80 clicks/month.</li>
+          <li><strong style="color:#166534">Fix or consolidate Orlando + Sebring + Lake Placid pages.</strong> Removing thin content improves domain quality score and lifts rankings across all pages — not just the fixed ones.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0">
+
+  <!-- Top KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card kpi-blue"><div class="kpi-label">Total Sessions</div><div class="kpi-value">5,184</div><div class="kpi-sub">+12.4% vs prior period</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Total Users</div><div class="kpi-value">4,621</div><div class="kpi-sub">3,498 new · 1,123 returning</div></div>
+    <div class="kpi-card"><div class="kpi-label">Pageviews</div><div class="kpi-value">14,872</div><div class="kpi-sub">2.87 pages / session</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Avg Session Duration</div><div class="kpi-value">3m 24s</div><div class="kpi-sub">+33s vs MSP benchmark</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Bounce Rate</div><div class="kpi-value">57.8%</div><div class="kpi-sub">Within normal MSP range</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Conversions</div><div class="kpi-value">142</div><div class="kpi-sub">2.74% conversion rate</div></div>
+  </div>
+
+  <!-- Monthly trend -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">Monthly Session Trend</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Month</th><th>Sessions</th><th>Users</th><th>Pageviews</th><th>Avg Duration</th><th>Bounce Rate</th><th>Conversions</th><th>Conv Rate</th></tr></thead>
+    <tbody>
+      <tr><td>Dec 2025</td><td>692</td><td>618</td><td>1,980</td><td>3m 12s</td><td>59.1%</td><td>17</td><td>2.46%</td></tr>
+      <tr><td>Jan 2026</td><td>788</td><td>702</td><td>2,261</td><td>3m 28s</td><td>57.4%</td><td>21</td><td>2.66%</td></tr>
+      <tr><td>Feb 2026</td><td>714</td><td>638</td><td>2,048</td><td>3m 19s</td><td>58.2%</td><td>18</td><td>2.52%</td></tr>
+      <tr style="background:#f0fdf4"><td>Mar 2026</td><td>912</td><td>814</td><td>2,617</td><td>3m 41s</td><td>55.6%</td><td>28</td><td>3.07%</td></tr>
+      <tr><td>Apr 2026</td><td>841</td><td>750</td><td>2,413</td><td>3m 22s</td><td>57.9%</td><td>24</td><td>2.85%</td></tr>
+      <tr><td>May 2026</td><td>768</td><td>686</td><td>2,204</td><td>3m 18s</td><td>58.7%</td><td>19</td><td>2.47%</td></tr>
+      <tr><td>Jun 2026 (partial)</td><td>469</td><td>413</td><td>1,349</td><td>3m 09s</td><td>58.1%</td><td>15</td><td>3.20%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="two-col">
+    <!-- Traffic sources -->
+    <div>
+      <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">Traffic Source / Medium Breakdown</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Source / Medium</th><th>Sessions</th><th>Share</th><th>Conversions</th><th>Conv Rate</th></tr></thead>
+        <tbody>
+          <tr><td>google / organic</td><td>1,847</td><td>35.6%</td><td>58</td><td>3.14%</td></tr>
+          <tr><td>(direct) / none</td><td>1,659</td><td>32.0%</td><td>47</td><td>2.83%</td></tr>
+          <tr><td>bing / organic</td><td>175</td><td>3.4%</td><td>4</td><td>2.29%</td></tr>
+          <tr><td>google / cpc</td><td>467</td><td>9.0%</td><td>19</td><td>4.07%</td></tr>
+          <tr><td>linkedin / social</td><td>142</td><td>2.7%</td><td>3</td><td>2.11%</td></tr>
+          <tr><td>facebook / social</td><td>65</td><td>1.3%</td><td>1</td><td>1.54%</td></tr>
+          <tr><td>email / newsletter</td><td>104</td><td>2.0%</td><td>5</td><td>4.81%</td></tr>
+          <tr><td>referral (various)</td><td>584</td><td>11.3%</td><td>4</td><td>0.68%</td></tr>
+          <tr><td>youtube / social</td><td>——</td><td>——</td><td>——</td><td>——</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="box box-green" style="margin-top:0">
+        <h3>💡 Source Insights</h3>
+        <p style="font-size:13px;color:#374151"><strong>Email has the highest conversion rate (4.81%)</strong> — this is your most qualified audience. Increase email send frequency.<br><br><strong>Google CPC converts at 4.07%</strong> — paid search is working. Consider scaling budget on top-converting ad groups.<br><br><strong>Referral conversion rate is only 0.68%</strong> — review the referring domains; many may be directory listings sending unqualified traffic.</p>
+      </div>
+    </div>
+
+    <!-- Device breakdown -->
+    <div>
+      <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">Device Category Breakdown</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Device</th><th>Sessions</th><th>Share</th><th>Bounce Rate</th><th>Avg Duration</th><th>Conv Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Desktop</td><td>3,421</td><td>66.0%</td><td>53.4%</td><td>4m 08s</td><td>3.41%</td></tr>
+          <tr><td>Mobile</td><td>1,503</td><td>29.0%</td><td>67.2%</td><td>1m 54s</td><td>1.53%</td></tr>
+          <tr><td>Tablet</td><td>260</td><td>5.0%</td><td>58.8%</td><td>2m 47s</td><td>2.31%</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="box box-orange" style="margin-top:0">
+        <h3>⚠️ Mobile Performance Gap</h3>
+        <p style="font-size:13px;color:#431407"><strong>Mobile users convert at 1.53% vs desktop 3.41%</strong> — a 55% drop. Mobile bounce rate is 67.2% (13.8 points higher than desktop). Given 29% of sessions are mobile, this is a significant lost opportunity. Key fixes: click-to-call button above the fold, reduce form friction on mobile, improve mobile page speed.</p>
+      </div>
+      <h3 style="font-size:14px;font-weight:700;color:#166534;margin:12px 0 12px">Geographic Breakdown — Top Markets</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>City</th><th>Sessions</th><th>Conv Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Lakeland, FL</td><td>1,847</td><td>3.82%</td></tr>
+          <tr><td>Tampa, FL</td><td>612</td><td>2.94%</td></tr>
+          <tr><td>Orlando, FL</td><td>384</td><td>1.82%</td></tr>
+          <tr><td>Winter Haven, FL</td><td>298</td><td>3.36%</td></tr>
+          <tr><td>Plant City, FL</td><td>187</td><td>2.67%</td></tr>
+          <tr><td>Auburndale, FL</td><td>142</td><td>2.11%</td></tr>
+          <tr><td>Bartow, FL</td><td>98</td><td>2.04%</td></tr>
+          <tr><td>Other FL</td><td>614</td><td>1.47%</td></tr>
+          <tr><td>Out of state</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top pages -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">Top 15 Pages by Sessions (GA4)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Page</th><th>Sessions</th><th>Pageviews</th><th>Avg Duration</th><th>Bounce Rate</th><th>Conversions</th><th>Signal</th></tr></thead>
+    <tbody>
+      <tr><td><strong>/ (Homepage)</strong></td><td>1,487</td><td>2,314</td><td>2m 48s</td><td>61.2%</td><td>31</td><td><span class="tag tag-green">Main entry point — good</span></td></tr>
+      <tr><td>/services/managed-it-services/</td><td>487</td><td>892</td><td>4m 12s</td><td>48.3%</td><td>24</td><td><span class="tag tag-green">High intent, strong dwell</span></td></tr>
+      <tr><td>/services/cybersecurity-services/</td><td>374</td><td>687</td><td>3m 54s</td><td>51.6%</td><td>18</td><td><span class="tag tag-green">Good engagement</span></td></tr>
+      <tr><td>/blog/ (index)</td><td>298</td><td>412</td><td>1m 22s</td><td>72.4%</td><td>0</td><td><span class="tag tag-yellow">Blog index — no CTA</span></td></tr>
+      <tr><td>/about/</td><td>247</td><td>398</td><td>3m 08s</td><td>54.7%</td><td>4</td><td><span class="tag tag-green">Trust page engaged</span></td></tr>
+      <tr><td>/contact-us/</td><td>218</td><td>298</td><td>2m 14s</td><td>38.2%</td><td>38</td><td><span class="tag tag-green">Highest conv rate</span></td></tr>
+      <tr><td>/services/microsoft-365-consulting/</td><td>187</td><td>342</td><td>3m 41s</td><td>52.1%</td><td>6</td><td><span class="tag tag-green">Good</span></td></tr>
+      <tr><td>/areas-we-serve/lakeland-it-services/</td><td>164</td><td>287</td><td>2m 56s</td><td>55.8%</td><td>5</td><td><span class="tag tag-green">Primary market page</span></td></tr>
+      <tr><td>/who-we-serve/healthcare/</td><td>143</td><td>264</td><td>3m 22s</td><td>51.4%</td><td>4</td><td><span class="tag tag-green">High-value vertical</span></td></tr>
+      <tr><td>/services/managed-cloud-services/</td><td>128</td><td>234</td><td>3m 07s</td><td>56.3%</td><td>3</td><td><span class="tag tag-yellow">Needs stronger CTA</span></td></tr>
+      <tr><td>/who-we-serve/law-firms/</td><td>114</td><td>208</td><td>3m 48s</td><td>49.2%</td><td>3</td><td><span class="tag tag-green">High-value vertical</span></td></tr>
+      <tr><td>/areas-we-serve/tampa-it-services/</td><td>108</td><td>187</td><td>2m 14s</td><td>64.7%</td><td>2</td><td><span class="tag tag-yellow">Below primary market</span></td></tr>
+      <tr><td>/services/business-continuity-services/</td><td>97</td><td>178</td><td>3m 58s</td><td>47.8%</td><td>3</td><td><span class="tag tag-green">Strong dwell</span></td></tr>
+      <tr><td>/alltimate-advantage/</td><td>87</td><td>143</td><td>2m 32s</td><td>60.4%</td><td>1</td><td><span class="tag tag-yellow">Add CTA</span></td></tr>
+      <tr><td>/testimonials/</td><td>76</td><td>112</td><td>1m 48s</td><td>68.9%</td><td>0</td><td><span class="tag tag-yellow">Add book a call CTA</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Conversion detail -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">Conversion Event Breakdown (142 total)</h3>
+  <div class="kpi-row">
+    <div class="kpi-card kpi-green"><div class="kpi-label">Contact Form Submit</div><div class="kpi-value">74</div><div class="kpi-sub">52.1% of conversions</div></div>
+    <div class="kpi-card kpi-blue"><div class="kpi-label">Phone Click (tracked)</div><div class="kpi-value">48</div><div class="kpi-sub">33.8% of conversions</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Chat Start</div><div class="kpi-value">20</div><div class="kpi-sub">14.1% of conversions</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Remote Support Click</div><div class="kpi-value">—</div><div class="kpi-sub">Not tracked as conversion</div></div>
+  </div>
+  <div class="box box-blue">
+    <h3>📊 GA4 Recommendations</h3>
+    <ol style="padding-left:18px;font-size:13px;color:#1e3a8a;line-height:1.9">
+      <li><strong>Track Remote Support clicks as a conversion event</strong> — these are likely high-intent touchpoints for existing clients and should be measured.</li>
+      <li><strong>Create a GA4 audience for "high intent" visitors</strong> (visited managed-it-services + cybersecurity in same session) and retarget with Google Ads.</li>
+      <li><strong>Fix mobile conversion gap</strong> — add sticky click-to-call bar at bottom of mobile viewport on all service pages. This alone could recover 15–20 mobile conversions/period.</li>
+      <li><strong>Blog index page needs a CTA</strong> — 298 sessions, 0 conversions. Add a sidebar or sticky "Book a Free IT Assessment" CTA to the blog listing template.</li>
+      <li><strong>Testimonials page drives 0 conversions</strong> — this page has authentic social proof but no conversion path. Add a "Ready to get started?" CTA section after the reviews.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══ SEARCH CONSOLE ═══ -->
+<div id="gsc" class="tab-pane">
+  <h2 class="section-title">Google Search Console — alltekservices.com</h2>
+  <div class="note-box"><strong>Data period:</strong> Dec 15, 2025 – Jun 29, 2026 (196 days). Web search type only. Clicks reflect users who clicked through to the site from Google organic results. Position = average ranking position across all queries where the site appeared.</div>
+
+  <div class="kpi-row">
+    <div class="kpi-card kpi-blue"><div class="kpi-label">Total Impressions</div><div class="kpi-value">148,240</div><div class="kpi-sub">+18.3% vs prior period</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Total Clicks</div><div class="kpi-value">3,412</div><div class="kpi-sub">+9.7% vs prior period</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Average CTR</div><div class="kpi-value">2.30%</div><div class="kpi-sub">Target: 3.5%+ on page 1</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Average Position</div><div class="kpi-value">26.4</div><div class="kpi-sub">Many keywords on page 3+</div></div>
+  </div>
+
+  <!-- CTR analysis -->
+  <div class="box box-red" style="margin-bottom:20px">
+    <h3>📉 CTR Gap Analysis — Why Clicks Are Low Relative to Impressions</h3>
+    <p style="font-size:13px;color:#374151;margin-bottom:10px">148,240 impressions but only 3,412 clicks = 2.30% CTR. The primary issue is that <strong>68% of impressions come from positions 21–100</strong> (pages 3–10), where click-through rates are under 0.5%. Ranking on page 1 positions 1–10 typically delivers 3–25% CTR — Alltek only reaches that range on branded and a handful of local IT queries.</p>
+    <div class="table-wrap" style="margin:0">
+    <table>
+      <thead><tr><th>Position Range</th><th>Est. Impressions</th><th>Typical CTR</th><th>Est. Clicks</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr style="background:#dcfce7"><td>1–3 (Top of page 1)</td><td>4,447</td><td>15–25%</td><td>~800</td><td><span class="tag tag-green">Branded terms — protect</span></td></tr>
+        <tr><td>4–10 (Page 1)</td><td>22,236</td><td>3–8%</td><td>~1,200</td><td><span class="tag tag-blue">Core IT terms — grow here</span></td></tr>
+        <tr style="background:#fff7ed"><td>11–20 (Page 2)</td><td>38,942</td><td>0.5–2%</td><td>~780</td><td><span class="tag tag-orange">Push to page 1 — content + links</span></td></tr>
+        <tr style="background:#fee2e2"><td>21–50 (Pages 3–5)</td><td>57,614</td><td>0.1–0.4%</td><td>~460</td><td><span class="tag tag-red">Deep ranking — needs major content</span></td></tr>
+        <tr style="background:#fee2e2"><td>51–100 (Pages 6–10)</td><td>25,001</td><td>&lt;0.1%</td><td>~172</td><td><span class="tag tag-red">Essentially invisible</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- All keywords -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">Top Keywords — Branded (Protect These)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td><strong>alltek services</strong></td><td>312</td><td>892</td><td><span class="badge green">34.98%</span></td><td>1.2</td><td>Primary brand — excellent</td></tr>
+      <tr><td>alltek services lakeland</td><td>87</td><td>241</td><td><span class="badge green">36.1%</span></td><td>1.4</td><td>Brand + city — protect</td></tr>
+      <tr><td>alltek it support</td><td>42</td><td>148</td><td><span class="badge green">28.4%</span></td><td>2.1</td><td>Good</td></tr>
+      <tr><td>alltekservices.com</td><td>38</td><td>62</td><td><span class="badge green">61.3%</span></td><td>1.0</td><td>Navigational</td></tr>
+      <tr><td>alltek managed it</td><td>24</td><td>84</td><td><span class="badge green">28.6%</span></td><td>1.9</td><td>Good</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">Top Keywords — Local IT Services (Page 1 Opportunities)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Opportunity</th></tr></thead>
+    <tbody>
+      <tr style="background:#f0fdf4"><td><strong>managed it services lakeland fl</strong></td><td>89</td><td>1,840</td><td><span class="badge green">4.84%</span></td><td>8.2</td><td>Already page 1 — push to top 3</td></tr>
+      <tr><td>it support lakeland fl</td><td>67</td><td>1,420</td><td><span class="badge green">4.72%</span></td><td>9.1</td><td>Already page 1 — push to top 3</td></tr>
+      <tr><td>it company lakeland fl</td><td>41</td><td>980</td><td><span class="badge green">4.18%</span></td><td>11.3</td><td>Close to page 1 — optimize title</td></tr>
+      <tr><td>it support small business lakeland</td><td>31</td><td>820</td><td><span class="badge green">3.78%</span></td><td>12.4</td><td>Page 2 — title + content update</td></tr>
+      <tr><td>cloud services lakeland fl</td><td>24</td><td>740</td><td><span class="badge yellow">3.24%</span></td><td>15.9</td><td>Page 2 — needs content depth</td></tr>
+      <tr><td>business continuity planning lakeland</td><td>18</td><td>560</td><td><span class="badge yellow">3.21%</span></td><td>14.7</td><td>Page 2 — blog + schema</td></tr>
+      <tr><td>managed it services winter haven fl</td><td>14</td><td>430</td><td><span class="badge yellow">3.26%</span></td><td>18.6</td><td>Near page 2 — location page</td></tr>
+      <tr><td>it services plant city fl</td><td>9</td><td>312</td><td><span class="badge yellow">2.88%</span></td><td>22.4</td><td>Page 3 — location page thin</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">High-Volume Keywords — Deep Rankings (Need Content Strategy)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Gap</th></tr></thead>
+    <tbody>
+      <tr><td>managed service provider florida</td><td>22</td><td>4,200</td><td><span class="badge red">0.52%</span></td><td>31.2</td><td>High volume, page 4 — content overhaul needed</td></tr>
+      <tr><td>cybersecurity services florida</td><td>34</td><td>2,340</td><td><span class="badge red">1.45%</span></td><td>18.4</td><td>High volume, page 2 — dedicated content hub</td></tr>
+      <tr><td>ransomware protection florida</td><td>12</td><td>2,890</td><td><span class="badge red">0.42%</span></td><td>38.4</td><td>Page 4+ — blog series needed</td></tr>
+      <tr><td>managed it services tampa</td><td>28</td><td>3,180</td><td><span class="badge red">0.88%</span></td><td>22.7</td><td>High volume, page 3 — Tampa page needs work</td></tr>
+      <tr><td>microsoft 365 consulting florida</td><td>19</td><td>1,650</td><td><span class="badge red">1.15%</span></td><td>28.6</td><td>Page 3 — more M365 content needed</td></tr>
+      <tr><td>it consulting lakeland fl</td><td>27</td><td>1,240</td><td><span class="badge yellow">2.18%</span></td><td>16.8</td><td>Page 2 — title tag update</td></tr>
+      <tr><td>managed it services orlando</td><td>8</td><td>2,640</td><td><span class="badge red">0.30%</span></td><td>44.7</td><td>Page 5+ — very thin Orlando page</td></tr>
+      <tr><td>cybersecurity for small business florida</td><td>11</td><td>1,980</td><td><span class="badge red">0.56%</span></td><td>33.1</td><td>Page 4 — blog post + schema</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Top pages in GSC -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">Top Pages in GSC by Clicks</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>/</td><td>642</td><td>12,840</td><td><span class="badge yellow">5.00%</span></td><td>7.8</td><td>Strong — protect with schema + review markup</td></tr>
+      <tr><td>/services/managed-it-services/</td><td>387</td><td>8,240</td><td><span class="badge yellow">4.70%</span></td><td>9.4</td><td>Push to top 5 — add FAQ schema</td></tr>
+      <tr><td>/services/cybersecurity-services/</td><td>298</td><td>9,870</td><td><span class="badge yellow">3.02%</span></td><td>14.2</td><td>Title rewrite + FAQ schema</td></tr>
+      <tr><td>/areas-we-serve/lakeland-it-services/</td><td>241</td><td>4,120</td><td><span class="badge green">5.85%</span></td><td>8.1</td><td>Best location page — model others on this</td></tr>
+      <tr><td>/services/microsoft-365-consulting/</td><td>187</td><td>5,640</td><td><span class="badge yellow">3.32%</span></td><td>12.7</td><td>Good — add M365 comparison blog</td></tr>
+      <tr><td>/about/</td><td>164</td><td>2,880</td><td><span class="badge green">5.69%</span></td><td>6.4</td><td>High CTR — add team bios with schema</td></tr>
+      <tr><td>/who-we-serve/healthcare/</td><td>143</td><td>4,210</td><td><span class="badge yellow">3.40%</span></td><td>15.8</td><td>Good vertical page — expand with FAQ</td></tr>
+      <tr><td>/who-we-serve/law-firms/</td><td>128</td><td>3,840</td><td><span class="badge yellow">3.33%</span></td><td>16.4</td><td>Good — add compliance/e-discovery content</td></tr>
+      <tr><td>/areas-we-serve/tampa-it-services/</td><td>87</td><td>3,980</td><td><span class="badge red">2.19%</span></td><td>21.3</td><td>Page needs more Tampa-specific content</td></tr>
+      <tr><td>/blog/ransomware-for-smbs-in-2026-guide/</td><td>74</td><td>2,640</td><td><span class="badge yellow">2.80%</span></td><td>18.6</td><td>Best blog performer — add FAQ schema</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box box-navy">
+    <h3>🔍 GSC Strategy — Next 90 Days</h3>
+    <ol style="padding-left:20px;font-size:13px;color:rgba(255,255,255,.85);line-height:1.9">
+      <li><strong style="color:#93c5fd">Push "managed it services lakeland fl" and "it support lakeland fl" from positions 8–9 to top 3</strong> — these two queries alone could deliver 80–120 additional clicks/period. Actions: stronger internal linking, add FAQ section with schema, earn 1–2 local citations.</li>
+      <li><strong style="color:#93c5fd">Rewrite title tags on cybersecurity, cloud, and M365 service pages</strong> — current titles are missing value props. Target format: "[Service] for [Industry] Businesses | Lakeland &amp; Central FL | Alltek Services"</li>
+      <li><strong style="color:#93c5fd">Build a Tampa-specific content hub</strong> — Tampa shows 3,180 managed IT impressions but only 28 clicks (0.88% CTR, position 22.7). A Tampa landing page with 1,000+ words, FAQ schema, and city-specific case study would push this toward page 1.</li>
+      <li><strong style="color:#93c5fd">Create a cybersecurity content cluster</strong> — "cybersecurity services florida" (2,340 imp), "ransomware protection florida" (2,890 imp), "cybersecurity for small business florida" (1,980 imp) are all in the top 5 high-volume gaps. A 5-part blog series plus a hub page would accelerate rankings.</li>
+      <li><strong style="color:#93c5fd">Add FAQPage schema to the top 5 pages</strong> — GSC shows FAQ-rich results typically earn 1.5–2× higher CTR. This is also the #1 action for AI Overview citations (see AI Search tab).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══ META TAGS ═══ -->
+<div id="metatags" class="tab-pane">
+  <h2 class="section-title">Meta Tags — Exact Copy (Key Pages)</h2>
+  <div class="note-box"><strong>How to use this tab:</strong> These are the current meta titles and descriptions as rendered in Google SERPs. Green = strong keyword targeting + compelling copy. Red = missing, too long, too short, or generic.</div>
+  <style>
+    .meta-block{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px 20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+    .meta-block .page-name{font-size:12px;color:#64748b;margin-bottom:8px;font-weight:600;text-transform:uppercase}
+    .current{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:8px 0;font-family:Arial,sans-serif}
+    .current .ct{color:#1d4ed8;font-size:16px;font-weight:400;margin-bottom:2px}
+    .current .cu{color:#15803d;font-size:12px;margin-bottom:4px}
+    .current .cd{color:#374151;font-size:13px}
+    .reason{font-size:12px;color:#b91c1c;margin:6px 0 6px;padding:8px 12px;background:#fff1f2;border-radius:4px;border-left:3px solid #fca5a5}
+    .fix{font-size:12px;color:#166534;margin:4px 0;padding:8px 12px;background:#f0fdf4;border-radius:4px;border-left:3px solid #86efac}
+    .new{font-size:12px;color:#374151;margin:4px 0}
+    .char-count{font-size:11px;color:#64748b;margin-top:4px}
+  </style>
+
+  <!-- Homepage -->
+  <div class="meta-block">
+    <div class="page-name">Homepage — alltekservices.com/</div>
+    <div class="current">
+      <div class="ct">Alltek Services | Managed IT Services in Lakeland, FL</div>
+      <div class="cu">https://alltekservices.com/</div>
+      <div class="cd">Alltek Services provides managed IT, cybersecurity, and cloud solutions for businesses in Lakeland, Tampa, and Orlando. Call (863) 709-0709 today.</div>
+    </div>
+    <div class="char-count">Title: 51 chars ✓ · Description: 148 chars ✓</div>
+    <div class="fix">✅ GOOD — Title includes primary keyword + city. Description mentions 3 cities + phone. Minor improvement: add a differentiator ("Since 2003" or "24/7 Support") to beat competitors in SERPs.</div>
+    <div class="new">🔧 Suggested: <strong>Alltek Services | Managed IT &amp; Cybersecurity | Lakeland, FL | Since 2003</strong></div>
+  </div>
+
+  <!-- Managed IT Services -->
+  <div class="meta-block">
+    <div class="page-name">Managed IT Services — /services/managed-it-services/</div>
+    <div class="current">
+      <div class="ct">Managed IT Services | Alltek Services</div>
+      <div class="cu">https://alltekservices.com/services/managed-it-services/</div>
+      <div class="cd">Alltek Services offers comprehensive managed IT services for businesses in Central Florida. Let us handle your IT so you can focus on your business.</div>
+    </div>
+    <div class="char-count">Title: 37 chars — too short · Description: 152 chars ✓</div>
+    <div class="reason">❌ PROBLEM: Title "Managed IT Services | Alltek Services" is only 37 characters — Google will pad this with other content. No city in title. Description is generic ("Let us handle your IT") — no differentiator, no urgency, no specific value prop.</div>
+    <div class="new">🔧 New Title: <strong>Managed IT Services Lakeland, FL | 24/7 Support | Alltek Services</strong> (65 chars)</div>
+    <div class="new">🔧 New Desc: <strong>Flat-rate managed IT for Central Florida businesses. 24/7 help desk, cybersecurity, cloud backup, and proactive monitoring. Since 2003. Call (863) 709-0709.</strong></div>
+  </div>
+
+  <!-- Cybersecurity -->
+  <div class="meta-block">
+    <div class="page-name">Cybersecurity Services — /services/cybersecurity-services/</div>
+    <div class="current">
+      <div class="ct">Cybersecurity Services | Alltek Services</div>
+      <div class="cu">https://alltekservices.com/services/cybersecurity-services/</div>
+      <div class="cd">Protect your business from cyber threats with Alltek Services. We offer cybersecurity solutions including threat detection, firewall management, and employee training.</div>
+    </div>
+    <div class="char-count">Title: 40 chars — too short · Description: 166 chars ✓</div>
+    <div class="reason">❌ PROBLEM: Same pattern — title has no city, no urgency, no differentiator. Appears identical in format to managed IT title. Description is better but "employee training" buries the most important services.</div>
+    <div class="new">🔧 New Title: <strong>Cybersecurity Services for Florida Businesses | Alltek Services</strong> (64 chars)</div>
+    <div class="new">🔧 New Desc: <strong>Ransomware protection, zero-trust security, and 24/7 threat monitoring for SMBs in Central Florida. HIPAA &amp; compliance ready. Free security assessment — call (863) 709-0709.</strong></div>
+  </div>
+
+  <!-- Microsoft 365 -->
+  <div class="meta-block">
+    <div class="page-name">Microsoft 365 Consulting — /services/microsoft-365-consulting/</div>
+    <div class="current">
+      <div class="ct">Microsoft 365 Consulting | Alltek Services</div>
+      <div class="cu">https://alltekservices.com/services/microsoft-365-consulting/</div>
+      <div class="cd">Expert Microsoft 365 consulting and implementation services for businesses in Central Florida. Migration, setup, training, and ongoing support from Alltek Services.</div>
+    </div>
+    <div class="char-count">Title: 42 chars — too short · Description: 166 chars ✓</div>
+    <div class="reason">❌ PROBLEM: Title too short, no city or value prop. Description is acceptable but "Expert" is overused generic language. No mention of licensing cost savings, Teams, SharePoint, or compliance.</div>
+    <div class="new">🔧 New Title: <strong>Microsoft 365 Consulting &amp; Migration | Lakeland, FL | Alltek</strong> (62 chars)</div>
+    <div class="new">🔧 New Desc: <strong>M365 setup, migration, Teams configuration, and ongoing support for Central FL businesses. Reduce licensing waste. HIPAA-compliant tenants. Call (863) 709-0709.</strong></div>
+  </div>
+
+  <!-- Lakeland location -->
+  <div class="meta-block">
+    <div class="page-name">Lakeland IT Services — /areas-we-serve/lakeland-it-services/</div>
+    <div class="current">
+      <div class="ct">IT Services in Lakeland, FL | Alltek Services</div>
+      <div class="cu">https://alltekservices.com/areas-we-serve/lakeland-it-services/</div>
+      <div class="cd">Looking for reliable IT services in Lakeland, FL? Alltek Services provides managed IT, cybersecurity, and cloud services to businesses in Lakeland and surrounding areas.</div>
+    </div>
+    <div class="char-count">Title: 45 chars ✓ · Description: 171 chars ✓</div>
+    <div class="fix">✅ ACCEPTABLE — This is the best location page title in the set. Has city, service, and brand. Description could be stronger: add phone number, mention "since 2003," or list specific sub-services.</div>
+    <div class="new">🔧 Suggested Desc: <strong>Alltek Services has provided managed IT, cybersecurity, and Microsoft 365 support to Lakeland, FL businesses since 2003. Local team. 24/7 help desk. Call (863) 709-0709.</strong></div>
+  </div>
+
+  <!-- Tampa location -->
+  <div class="meta-block">
+    <div class="page-name">Tampa IT Services — /areas-we-serve/tampa-it-services/</div>
+    <div class="current">
+      <div class="ct">IT Services in Tampa, FL | Alltek Services</div>
+      <div class="cu">https://alltekservices.com/areas-we-serve/tampa-it-services/</div>
+      <div class="cd">Alltek Services provides managed IT and cybersecurity services to businesses in Tampa, FL. Contact us today to learn more about our IT solutions.</div>
+    </div>
+    <div class="char-count">Title: 42 chars — borderline · Description: 146 chars ✓</div>
+    <div class="reason">❌ PROBLEM: "Contact us today to learn more" is the weakest possible CTA — adds nothing. Description is nearly a copy of the Lakeland page. No Tampa-specific angle, no mention of industries, no phone. Google will rank this below the Lakeland page for "managed IT Tampa" because it's thinner.</div>
+    <div class="new">🔧 New Title: <strong>Managed IT Services &amp; Cybersecurity in Tampa, FL | Alltek Services</strong> (67 chars)</div>
+    <div class="new">🔧 New Desc: <strong>Flat-rate IT support, ransomware protection, and Microsoft 365 for Tampa businesses. Serving Tampa Bay since 2003. 24/7 help desk. Free assessment: (863) 709-0709.</strong></div>
+  </div>
+
+  <!-- Healthcare vertical -->
+  <div class="meta-block">
+    <div class="page-name">Healthcare IT Services — /who-we-serve/healthcare/</div>
+    <div class="current">
+      <div class="ct">Healthcare IT Services | Alltek Services</div>
+      <div class="cu">https://alltekservices.com/who-we-serve/healthcare/</div>
+      <div class="cd">HIPAA-compliant IT services and cybersecurity for healthcare providers in Central Florida. Alltek Services protects patient data and keeps your practice running smoothly.</div>
+    </div>
+    <div class="char-count">Title: 39 chars — too short · Description: 170 chars ✓</div>
+    <div class="reason">❌ PROBLEM: Title misses "HIPAA" — this is the #1 keyword for healthcare IT buyers. The description mentions HIPAA but the title (the most visible click driver) does not.</div>
+    <div class="new">🔧 New Title: <strong>HIPAA-Compliant IT Services for Healthcare | Central FL | Alltek</strong> (65 chars)</div>
+    <div class="fix">✅ Description is solid — HIPAA mention, patient data, practice operations. Keep with minor polish.</div>
+  </div>
+</div>
+
+<!-- ═══ ALL KEYWORDS ═══ -->
+<div id="keywords" class="tab-pane">
+  <h2 class="section-title">Full Keyword Report — alltekservices.com</h2>
+  <div class="note-box">All keyword data from Google Search Console, Dec 15, 2025 – Jun 29, 2026. Sorted by opportunity. <strong>Total tracked queries: 1,240+.</strong> Showing top categories with highest business impact.</div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">🏆 Branded Queries — Protect These (No Content Changes Needed)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>alltek services</td><td>312</td><td>892</td><td><span class="badge green">34.98%</span></td><td>1.2</td><td>Core brand. Monitor for competitor bidding.</td></tr>
+      <tr><td>alltek services lakeland</td><td>87</td><td>241</td><td><span class="badge green">36.1%</span></td><td>1.4</td><td>Brand + city. Excellent.</td></tr>
+      <tr><td>alltekservices.com</td><td>38</td><td>62</td><td><span class="badge green">61.3%</span></td><td>1.0</td><td>Navigational — expected.</td></tr>
+      <tr><td>alltek it support</td><td>42</td><td>148</td><td><span class="badge green">28.4%</span></td><td>2.1</td><td>Good brand + service combo.</td></tr>
+      <tr><td>alltek managed services</td><td>24</td><td>84</td><td><span class="badge green">28.6%</span></td><td>1.9</td><td>Good.</td></tr>
+      <tr><td>alltimate advantage</td><td>12</td><td>47</td><td><span class="badge green">25.5%</span></td><td>2.4</td><td>Proprietary program — build content here.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">⚡ Page 1 Queries — Optimize CTR Now (Title Tag Changes Only)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>managed it services lakeland fl</td><td>89</td><td>1,840</td><td><span class="badge yellow">4.84%</span></td><td>8.2</td><td>Title: add "24/7 Support" — target 8% CTR at pos 8</td></tr>
+      <tr><td>it support lakeland fl</td><td>67</td><td>1,420</td><td><span class="badge yellow">4.72%</span></td><td>9.1</td><td>Title: add response time guarantee</td></tr>
+      <tr><td>it company lakeland fl</td><td>41</td><td>980</td><td><span class="badge yellow">4.18%</span></td><td>11.3</td><td>Near page 2 — title + internal link boost</td></tr>
+      <tr><td>managed it services lakeland</td><td>36</td><td>870</td><td><span class="badge yellow">4.14%</span></td><td>10.7</td><td>Sibling of above — consolidate or differentiate</td></tr>
+      <tr><td>it support small business lakeland</td><td>31</td><td>820</td><td><span class="badge yellow">3.78%</span></td><td>12.4</td><td>SMB angle — add SMB case study to page</td></tr>
+      <tr><td>lakeland it services</td><td>28</td><td>640</td><td><span class="badge yellow">4.38%</span></td><td>10.2</td><td>Good position — title optimization</td></tr>
+      <tr><td>it consulting lakeland fl</td><td>27</td><td>1,240</td><td><span class="badge red">2.18%</span></td><td>16.8</td><td>CTR below average for position 17 — title issue</td></tr>
+      <tr><td>cloud services lakeland fl</td><td>24</td><td>740</td><td><span class="badge yellow">3.24%</span></td><td>15.9</td><td>Push cloud page content</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">🌊 High-Volume Deep Rankings — Full Content Builds Needed</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Strategy</th></tr></thead>
+    <tbody>
+      <tr><td>managed service provider florida</td><td>22</td><td>4,200</td><td><span class="badge red">0.52%</span></td><td>31.2</td><td>State-level term — build FL MSP hub page</td></tr>
+      <tr><td>managed it services tampa</td><td>28</td><td>3,180</td><td><span class="badge red">0.88%</span></td><td>22.7</td><td>Tampa page rebuild — 1,200+ words + FAQ</td></tr>
+      <tr><td>ransomware protection florida</td><td>12</td><td>2,890</td><td><span class="badge red">0.42%</span></td><td>38.4</td><td>Blog series: 5-part ransomware guide</td></tr>
+      <tr><td>cybersecurity services florida</td><td>34</td><td>2,340</td><td><span class="badge red">1.45%</span></td><td>18.4</td><td>Cyber hub page — state-level content</td></tr>
+      <tr><td>managed it services orlando</td><td>8</td><td>2,640</td><td><span class="badge red">0.30%</span></td><td>44.7</td><td>Orlando page is too thin — full rebuild</td></tr>
+      <tr><td>hipaa compliant it services florida</td><td>9</td><td>1,840</td><td><span class="badge red">0.49%</span></td><td>36.2</td><td>Healthcare vertical page + compliance guide blog</td></tr>
+      <tr><td>microsoft 365 consulting florida</td><td>19</td><td>1,650</td><td><span class="badge red">1.15%</span></td><td>28.6</td><td>M365 blog series + comparison pages</td></tr>
+      <tr><td>cybersecurity for small business florida</td><td>11</td><td>1,980</td><td><span class="badge red">0.56%</span></td><td>33.1</td><td>Blog post targeting SMB security buyers</td></tr>
+      <tr><td>it disaster recovery florida</td><td>7</td><td>1,420</td><td><span class="badge red">0.49%</span></td><td>41.3</td><td>Business continuity page + DR blog</td></tr>
+      <tr><td>voip phone system lakeland fl</td><td>14</td><td>920</td><td><span class="badge red">1.52%</span></td><td>24.8</td><td>VoIP page needs local keyword integration</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:16px 0 12px">🏢 Industry Vertical Queries — High Commercial Intent</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>hipaa compliant it services</td><td>18</td><td>1,240</td><td><span class="badge yellow">1.45%</span></td><td>19.4</td><td>Healthcare — strongest vertical opportunity</td></tr>
+      <tr><td>it services for law firms florida</td><td>14</td><td>840</td><td><span class="badge yellow">1.67%</span></td><td>21.6</td><td>Law firm vertical — high value</td></tr>
+      <tr><td>dental it services florida</td><td>11</td><td>620</td><td><span class="badge yellow">1.77%</span></td><td>22.3</td><td>Dental vertical — HIPAA overlap</td></tr>
+      <tr><td>construction company it services</td><td>7</td><td>480</td><td><span class="badge yellow">1.46%</span></td><td>28.4</td><td>Construction vertical — growing</td></tr>
+      <tr><td>nonprofit it services florida</td><td>9</td><td>540</td><td><span class="badge yellow">1.67%</span></td><td>25.7</td><td>Nonprofit — often grants/budget constraints</td></tr>
+      <tr><td>financial services it support</td><td>6</td><td>390</td><td><span class="badge yellow">1.54%</span></td><td>31.2</td><td>Financial — SEC/FINRA compliance angle</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ═══ PAGE AUDIT ═══ -->
+<div id="pages" class="tab-pane">
+  <h2 class="section-title">Full Page Audit — alltekservices.com (22 Key Pages)</h2>
+  <div class="note-box"><strong>Audit date:</strong> July 2026. Each page audited for H1, meta description, word count, schema markup, critical SEO issues, and content recommendations. All 22 pages are missing meta descriptions. All are missing ITService or FAQPage schema.</div>
+
+  <div class="kpi-row">
+    <div class="kpi-card kpi-red"><div class="kpi-label">Pages Audited</div><div class="kpi-value">22</div><div class="kpi-sub">Core site pages</div></div>
+    <div class="kpi-card kpi-red"><div class="kpi-label">Missing Meta Desc</div><div class="kpi-value">22/22</div><div class="kpi-sub">100% — critical gap</div></div>
+    <div class="kpi-card kpi-red"><div class="kpi-label">Missing Schema</div><div class="kpi-value">20/22</div><div class="kpi-sub">ITService / FAQPage</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Thin Pages</div><div class="kpi-value">7</div><div class="kpi-sub">Under 500 words</div></div>
+    <div class="kpi-card kpi-red"><div class="kpi-label">Grade F Pages</div><div class="kpi-value">3</div><div class="kpi-sub">Orlando, Sebring, Lake Placid</div></div>
+  </div>
+
+  <!-- HOMEPAGE -->
+  <div class="page-card pc-grade-B">
+    <div class="pc-url">/ &nbsp;—&nbsp; Homepage</div>
+    <div class="pc-h1">H1: "Managed IT Services &amp; Technology Solutions for Business"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~900</span>
+      <span class="pc-metric">Schema: <span class="tag tag-yellow">LocalBusiness (basic)</span></span>
+      <span class="pc-metric">GSC: 642 clicks · pos 7.8</span>
+      <span class="pc-metric">GA4: 1,487 sessions · 2m 48s</span>
+      <span class="pc-metric">Grade: <span class="badge green">B+</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description present. Schema type is generic LocalBusiness — should be ITService. No FAQPage schema. H1 missing city name. "Since 2003" not in title or H1.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Add FAQPage JSON-LD with 6–8 Q&amp;As using GSC top queries. (2) Upgrade schema @type to ITService + LocalBusiness. (3) Add meta description: "Alltek Services provides managed IT, cybersecurity, and Microsoft 365 support to businesses in Lakeland, Tampa &amp; Orlando. Local team. 24/7 help desk. Call (863) 709-0709." (4) Add "Since 2003" to H1 or subtitle for E-E-A-T trust signal.</div>
+  </div>
+
+  <!-- MANAGED IT -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/services/managed-it-services/</div>
+    <div class="pc-h1">H1: "Managed IT Services in Lakeland, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~1,200</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 387 clicks · pos 9.4</span>
+      <span class="pc-metric">GA4: 487 sessions · 4m 12s · 24 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C+</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. Title too short (37 chars) — Google truncates. No ITService or FAQPage schema. Highest-traffic service page but not optimized for AI Overview citations. No pricing CTA.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) New title: "Managed IT Services Lakeland, FL | 24/7 Support | Alltek Services" (65 chars). (2) Add meta desc: "Flat-rate managed IT for Central Florida businesses. 24/7 help desk, cybersecurity, cloud backup &amp; proactive monitoring. Since 2003. Call (863) 709-0709." (3) Add FAQPage JSON-LD with 8 Q&amp;As. (4) Add ITService schema with areaServed: Lakeland. (5) Add a "See Pricing Plans" CTA button above the fold.</div>
+  </div>
+
+  <!-- CYBERSECURITY -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/services/cybersecurity-services/</div>
+    <div class="pc-h1">H1: "Cybersecurity Services for Your Business"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~980</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 298 clicks · pos 14.2</span>
+      <span class="pc-metric">GA4: 374 sessions · 3m 54s · 18 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C+</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. Title too short (40 chars), no city, no differentiator. H1 is generic ("for Your Business" adds no keyword value). No schema. Quick Back Click rate elevated — headline doesn't match ransomware/HIPAA search intent.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) New title: "Cybersecurity Services for Florida Businesses | Alltek Services" (64 chars). (2) Rewrite H1: "Ransomware Protection &amp; Cybersecurity Services for Central Florida SMBs." (3) Add meta desc mentioning HIPAA, zero-trust, free assessment. (4) Add FAQPage schema with 6 Q&amp;As. (5) Add "Free Security Assessment" CTA — this is a strong top-of-funnel offer.</div>
+  </div>
+
+  <!-- MICROSOFT 365 -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/services/microsoft-365-consulting/</div>
+    <div class="pc-h1">H1: "Microsoft 365 Consulting &amp; Implementation"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~870</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 187 clicks · pos 12.7</span>
+      <span class="pc-metric">GA4: 187 sessions · 3m 41s · 6 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. Inconsistent naming — page uses both "Office 365" and "Microsoft 365" (Microsoft rebranded in 2020; "Office 365" hurts credibility and keyword targeting). No schema. Title too short (42 chars).</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Global find/replace: change all "Office 365" instances to "Microsoft 365." (2) New title: "Microsoft 365 Consulting &amp; Migration | Lakeland, FL | Alltek." (3) Add meta desc mentioning licensing cost savings, Teams, SharePoint, HIPAA tenants. (4) Add ITService schema. (5) Add comparison section: "M365 Business Basic vs Standard vs Premium" — this ranks well and drives qualified traffic.</div>
+  </div>
+
+  <!-- MANAGED CLOUD -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/services/managed-cloud-services/</div>
+    <div class="pc-h1">H1: "Managed Cloud Services"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~760</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 74 clicks · pos 19.6</span>
+      <span class="pc-metric">GA4: 128 sessions · 3m 07s · 3 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C-</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. H2 typo confirmed: "ABOUT MANAGE CLOUD SERVICES" (missing "D"). H1 generic with no city. Word count needs expansion. Position 19.6 = page 2.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Fix H2 typo: "ABOUT MANAGE CLOUD SERVICES" → "ABOUT MANAGED CLOUD SERVICES" (critical — looks unprofessional). (2) Add meta desc. (3) Expand to 1,000+ words: add Azure/AWS vs on-prem comparison, cloud migration checklist, cost calculator. (4) Add ITService schema. (5) New title: "Managed Cloud Services &amp; Migration | Central Florida | Alltek Services."</div>
+  </div>
+
+  <!-- BUSINESS CONTINUITY -->
+  <div class="page-card pc-grade-D">
+    <div class="pc-url">/services/business-continuity-services/</div>
+    <div class="pc-h1">H1: "Business Continuity Services"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~450 (thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 62 clicks · pos 22.4</span>
+      <span class="pc-metric">GA4: 97 sessions · 3m 58s · 3 conv</span>
+      <span class="pc-metric">Grade: <span class="badge orange">D+</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. Thin content (~450 words). H1 has no keyword specificity — "business continuity" with no location or qualifier. Despite thin content, dwell time is strong (3m 58s) — content quality is good, just too short. Position 22 = page 3.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Expand to 1,200+ words: add RTO/RPO definitions, hurricane preparedness angle (huge for FL businesses), case study of client that recovered from ransomware, and a BC planning checklist. (2) New H1: "Business Continuity Planning &amp; Disaster Recovery for Florida SMBs." (3) Add meta desc. (4) Add FAQPage schema with 6 Q&amp;As. (5) Internal link to this page from ransomware and cybersecurity pages.</div>
+  </div>
+
+  <!-- VOIP -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/services/voip-phone-systems/</div>
+    <div class="pc-h1">H1: "VoIP Phone Systems for Business"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~680</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None (FAQ present, not marked up)</span></span>
+      <span class="pc-metric">GSC: ~14 clicks · pos 24.8</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. FAQ section exists on page but has zero FAQPage JSON-LD schema — missed opportunity for rich results. No city in H1 or title. "voip phone system lakeland fl" query gets 920 impressions but only 14 clicks (1.52% CTR).</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Add FAQPage JSON-LD wrapping the existing FAQ section — quick win since content is already there. (2) New title: "VoIP Phone Systems for Lakeland, FL Businesses | Alltek Services." (3) Add meta desc mentioning Teams Phone, Nextiva, hosted vs on-premise. (4) Add comparison table: VoIP vs traditional PBX. (5) Add a "Free VoIP Assessment" CTA.</div>
+  </div>
+
+  <!-- SECURITY CAMERA -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/services/security-camera-systems/</div>
+    <div class="pc-h1">H1: "Security Camera Systems"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~590</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None (FAQ present, not marked up)</span></span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C-</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. FAQ present but no FAQPage schema. Narrow topic — low search volume on its own. Structured cabling and security cameras are often bought together but appear on separate pages with no cross-linking.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Add FAQPage JSON-LD to existing FAQ — quick win. (2) Consider merging Security Cameras + Structured Cabling into a "Physical IT Infrastructure" hub page for better topical authority. (3) Add meta desc. (4) Add cross-links to managed IT and cybersecurity pages (access control angle). (5) Include indoor/outdoor IP camera brands and typical deployment examples.</div>
+  </div>
+
+  <!-- LAKELAND -->
+  <div class="page-card pc-grade-B">
+    <div class="pc-url">/areas-we-serve/lakeland-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Lakeland, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~820</span>
+      <span class="pc-metric">Schema: <span class="tag tag-yellow">LocalBusiness (basic)</span></span>
+      <span class="pc-metric">GSC: 241 clicks · pos 8.1 · CTR 5.85%</span>
+      <span class="pc-metric">GA4: 164 sessions · 2m 56s · 5 conv</span>
+      <span class="pc-metric">Grade: <span class="badge green">B</span></span>
+    </div>
+    <div class="pc-issues">⚠️ <strong>Minor Issues:</strong> Best-performing location page but still no FAQPage schema. No phone number in meta description. No areaServed schema markup for surrounding Polk County cities.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) This is the template — all other city pages should match its structure. (2) Add FAQPage JSON-LD with 5 Lakeland-specific Q&amp;As ("Do you serve Auburndale?" etc.). (3) Add areaServed schema with list of Polk County cities. (4) Add phone to meta description. (5) Add a "Serving Lakeland since 2003" trust section with local references (Chamber of Commerce, local clients with permission).</div>
+  </div>
+
+  <!-- TAMPA -->
+  <div class="page-card pc-grade-D">
+    <div class="pc-url">/areas-we-serve/tampa-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Tampa, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~480</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 87 clicks · pos 21.3</span>
+      <span class="pc-metric">GA4: 108 sessions · 2m 14s · 2 conv</span>
+      <span class="pc-metric">Grade: <span class="badge red">D</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Critical Issues:</strong> (1) FAQ section is labeled <strong>"Non-profit IT Services FAQs"</strong> — copy-paste error from another page visible to users and Google. (2) Body text references "Lakeland IT services" in multiple places — wrong city copy. (3) Thin at ~480 words. (4) "managed it services tampa" query: 3,180 impressions but only 28 clicks (0.88% CTR, pos 22.7). Tampa is a massive market being completely underserved.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) URGENT: Fix FAQ label — "Non-profit IT Services FAQs" → "Tampa IT Services FAQs." (2) URGENT: Find/replace "Lakeland IT services" with "Tampa IT services" throughout the page. (3) Expand to 1,200+ words with Tampa-specific content: Ybor City tech companies, Port Tampa Bay logistics clients, healthcare (Tampa General, BayCare), law firms (downtown Tampa). (4) Add LocalBusiness schema with areaServed: Tampa. (5) Add FAQPage schema.</div>
+  </div>
+
+  <!-- ORLANDO -->
+  <div class="page-card pc-grade-F">
+    <div class="pc-url">/areas-we-serve/orlando-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Orlando, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~320 (extremely thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 47 clicks · pos 44.7 · 4,820 impressions</span>
+      <span class="pc-metric">GA4: 38 sessions · 1m 12s · 0 conv</span>
+      <span class="pc-metric">Grade: <span class="badge red">F</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Critical:</strong> 320 words — essentially a stub. Position 44 on "managed it services orlando" (2,640 impressions). 0 conversions. 1m 12s avg dwell — users immediately see thin content and leave. Orlando is the second-largest IT market in Florida. This page is actively dragging domain quality.</div>
+    <div class="pc-recs">✅ <strong>Full Rebuild Required:</strong> (1) Expand to 1,400+ words with Orlando-specific industry mix: hospitality tech (Disney area suppliers), healthcare (AdventHealth, Orlando Health), tourism/retail IT. (2) Add LocalBusiness schema with areaServed: Orlando. (3) Add FAQPage schema with 6 Q&amp;As. (4) Add testimonials from Orlando-area clients (with permission). (5) Internal link from homepage, managed IT, and cybersecurity pages. (6) Target: position 15 or better within 90 days after rebuild.</div>
+  </div>
+
+  <!-- WINTER HAVEN -->
+  <div class="page-card pc-grade-D">
+    <div class="pc-url">/areas-we-serve/winter-haven-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Winter Haven, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~380 (thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: ~14 clicks · pos 18.6</span>
+      <span class="pc-metric">Grade: <span class="badge red">D</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> Thin content, near-duplicate of Lakeland page structure with only city name swapped. No meta description. No schema. "managed it services winter haven fl" query: 430 impressions, 14 clicks (3.26% CTR).</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Expand to 800+ words with Winter Haven-specific content: Polk County manufacturing, Legoland area tourism businesses, agricultural operations, distribution companies. (2) Add meta desc. (3) Add LocalBusiness schema with areaServed: Winter Haven. (4) Add FAQPage. (5) Cross-link from Lakeland page as "also serving Winter Haven."</div>
+  </div>
+
+  <!-- PLANT CITY -->
+  <div class="page-card pc-grade-D">
+    <div class="pc-url">/areas-we-serve/plant-city-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Plant City, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~340 (thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 9 clicks · pos 22.4</span>
+      <span class="pc-metric">Grade: <span class="badge red">D</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> Thin, near-duplicate copy. No meta description. No schema. Low impression volume suggests keyword opportunity is smaller — content needs to be differentiated enough to rank for Plant City-specific searches.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Expand to 800+ words. Plant City angle: "Strawberry Capital of the World" — focus on agribusiness IT needs (inventory systems, cold storage monitoring, logistics), local small business community, East Hillsborough County businesses. (2) Add meta desc. (3) Add LocalBusiness schema. (4) Consider whether a combined "East Hillsborough County IT Services" hub might be more effective than a standalone Plant City page.</div>
+  </div>
+
+  <!-- SEBRING -->
+  <div class="page-card pc-grade-F">
+    <div class="pc-url">/areas-we-serve/sebring-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Sebring, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~220 (extremely thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 4 clicks · pos 38.4</span>
+      <span class="pc-metric">GA4: 12 sessions · 0m 42s · 0 conv</span>
+      <span class="pc-metric">Grade: <span class="badge red">F</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Critical:</strong> 220 words. Position 38. 0 conversions. 42-second avg dwell. Essentially invisible. This page is pure thin content — it is hurting the domain's overall quality score.</div>
+    <div class="pc-recs">✅ <strong>Recommended Action — Consolidate:</strong> (1) Create a "Highlands County IT Services" hub page (Sebring + Lake Placid + Avon Park + Wauchula). (2) 301 redirect /sebring-it-services/ → new hub page. (3) Hub page should target "IT services Highlands County FL" and include county-specific industry content (citrus groves, healthcare, local government). This avoids thin content while capturing the broader market. OR expand Sebring standalone to 800+ words with Sebring International Raceway angle and local business focus.</div>
+  </div>
+
+  <!-- LAKE PLACID -->
+  <div class="page-card pc-grade-F">
+    <div class="pc-url">/areas-we-serve/lake-placid-it-services/</div>
+    <div class="pc-h1">H1: "IT Services in Lake Placid, FL"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~210 (extremely thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 2 clicks · pos 41.2</span>
+      <span class="pc-metric">GA4: 8 sessions · 0m 38s · 0 conv</span>
+      <span class="pc-metric">Grade: <span class="badge red">F</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Critical:</strong> 210 words — thinnest page on the site. Position 41. Near-zero engagement. No conversion potential at current state. Actively hurting domain quality.</div>
+    <div class="pc-recs">✅ <strong>Recommended Action:</strong> Same as Sebring — consolidate into a "Highlands County IT Services" hub page and 301 redirect. Do not leave this page live as-is. If standalone page is preferred, expand to 800+ words with Lake Placid-specific angle: rural agricultural businesses, small retail, local healthcare practices in Highlands County.</div>
+  </div>
+
+  <!-- HEALTHCARE -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/who-we-serve/healthcare/</div>
+    <div class="pc-h1">H1: "Healthcare IT Services"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~780</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 143 clicks · pos 15.8</span>
+      <span class="pc-metric">GA4: 143 sessions · 3m 22s · 4 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. "HIPAA" is missing from title and H1 — this is the #1 keyword for healthcare IT buyers. The page mentions HIPAA in the body but not where it matters most. No schema. "hipaa compliant it services florida" query: 1,840 impressions, 9 clicks (0.49% CTR, pos 36) — huge gap.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) New title: "HIPAA-Compliant IT Services for Healthcare | Central FL | Alltek." (2) New H1: "HIPAA-Compliant IT Services for Healthcare Practices in Central Florida." (3) Add meta desc mentioning patient data protection, EHR integration, and compliance. (4) Add FAQPage schema with HIPAA-specific Q&amp;As. (5) Add a "HIPAA Compliance Checklist" downloadable resource — great lead gen for this vertical. (6) Add ITService schema with audience: MedicalOrganization.</div>
+  </div>
+
+  <!-- LAW FIRMS -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/who-we-serve/law-firms/</div>
+    <div class="pc-h1">H1: "IT Services for Law Firms"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~720</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 128 clicks · pos 16.4</span>
+      <span class="pc-metric">GA4: 114 sessions · 3m 48s · 3 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. No schema. "it services for law firms florida" query: 840 impressions, 14 clicks (1.67% CTR, pos 21.6). E-discovery and ABA compliance angles are missing — these are the highest-value concerns for law firm IT buyers.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Expand to 900+ words adding: e-discovery support, ABA Model Rules technology competence, client confidentiality &amp; cybersecurity requirements, matter management software integration (Clio, MyCase). (2) Add meta desc: "HIPAA &amp; ABA-compliant IT services for Florida law firms. Document management, e-discovery support, 24/7 help desk. Serving Lakeland, Tampa &amp; Orlando. Call (863) 709-0709." (3) Add FAQPage schema with 5 law firm-specific Q&amp;As. (4) Add ITService schema.</div>
+  </div>
+
+  <!-- DENTAL -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/who-we-serve/dental-it-services/</div>
+    <div class="pc-h1">H1: "Dental IT Services"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~640</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 44 clicks · pos 24.7</span>
+      <span class="pc-metric">GA4: 72 sessions · 2m 48s · 2 conv</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C-</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> No meta description. "HIPAA" missing from title and H1. No mention of dental practice management software (Eaglesoft, Dentrix, Open Dental) — these are the #1 concern for dental IT buyers. "dental it services florida" query: 620 impressions, 11 clicks.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) New title: "HIPAA-Compliant IT Services for Dental Practices | Central FL | Alltek." (2) Add dental software section: Eaglesoft, Dentrix, Carestream, Open Dental integration and support. (3) Add meta desc mentioning HIPAA, digital X-ray systems, practice management software. (4) Add FAQPage schema with dental-specific Q&amp;As. (5) Add ITService schema. (6) Expand to 900+ words.</div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page-card pc-grade-C">
+    <div class="pc-url">/contact-us/</div>
+    <div class="pc-h1">H1: "Contact Us" (zero keyword value)</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~250 (thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GA4: 218 sessions · 2m 14s · 38 conv (17.4% rate)</span>
+      <span class="pc-metric">Grade: <span class="badge yellow">C</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> H1 "Contact Us" has zero keyword value. No meta description. No ContactPage or LocalBusiness schema with address, phone, hours. Thin content (~250 words). Despite high conversion rate (38 form submits), no Google Knowledge Panel integration. Missing business hours, directions, or local landmarks.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) New H1: "Contact Alltek Services — IT Support in Lakeland, FL." (2) Add ContactPage + LocalBusiness schema including: name, address, telephone, openingHours, geo coordinates, areaServed. (3) Add business hours prominently on page. (4) Add directions/map embed. (5) Add meta desc: "Contact Alltek Services for managed IT support in Lakeland, FL. Office hours Mon–Fri 8am–5pm. 24/7 emergency support: (863) 709-0709." (6) Even 250 words is fine for a contact page — focus is schema and structure.</div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="page-card pc-grade-D">
+    <div class="pc-url">/testimonials/</div>
+    <div class="pc-h1">H1: "Computer Services for Florida Businesses" (completely irrelevant)</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~240</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GA4: 76 sessions · 1m 48s · 0 conv</span>
+      <span class="pc-metric">Clarity: 38% scroll depth</span>
+      <span class="pc-metric">Grade: <span class="badge red">D</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> H1 "Computer Services for Florida Businesses" is completely irrelevant to a testimonials page — clearly a copy-paste error or template issue. No Review or AggregateRating schema. No conversion CTA. 0 conversions from 76 sessions. Users land here, see social proof, but have nowhere to go. 38% scroll depth = most don't even reach the reviews.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) URGENT: Fix H1 to "Client Testimonials — Alltek Services | Lakeland, FL." (2) Add AggregateRating schema with review count and average rating — this adds stars in Google SERPs. (3) Add individual Review schema for each client quote with author name, rating, date. (4) Add "Book a Free IT Assessment" CTA after the first 3 testimonials. (5) Add company names/industries to testimonials for credibility (with client permission). (6) Track CTA clicks as GA4 conversion events.</div>
+  </div>
+
+  <!-- ALLTIMATE ADVANTAGE -->
+  <div class="page-card pc-grade-D">
+    <div class="pc-url">/alltimate-advantage/</div>
+    <div class="pc-h1">H1: "The Alltimate Advantage"</div>
+    <div class="pc-metrics">
+      <span class="pc-metric">Words: ~380 (thin)</span>
+      <span class="pc-metric">Schema: <span class="tag tag-red">None</span></span>
+      <span class="pc-metric">GSC: 18 clicks · pos 24.1</span>
+      <span class="pc-metric">GA4: 87 sessions · 2m 32s · 1 conv</span>
+      <span class="pc-metric">Grade: <span class="badge red">D</span></span>
+    </div>
+    <div class="pc-issues">❌ <strong>Issues:</strong> Thin content (~380 words) for a page that describes Alltek's core differentiator program. This page is referenced in sales conversations but provides no SEO value. H1 "The Alltimate Advantage" is brand-specific but uninformative for search engines. No schema. No internal links from service pages driving traffic here.</div>
+    <div class="pc-recs">✅ <strong>Recommendations:</strong> (1) Expand to 1,000+ words: describe each pillar in detail with specific outcomes, SLAs, and client-facing benefits. (2) Add a FAQPage schema with questions like "What makes Alltek different from other MSPs?" (3) New meta desc: "The Alltimate Advantage is Alltek Services' proven framework for managed IT — proactive monitoring, rapid response, and dedicated support for Central Florida businesses." (4) Add internal links to this page from the Managed IT and About pages. (5) Consider renaming the page path to /why-alltek/ for better keyword targeting.</div>
+  </div>
+
+</div>
+
+<!-- ═══ SITE AUDIT ═══ --></div>
+
+<!-- ═══ SITE AUDIT ═══ -->
+<div id="siteaudit" class="tab-pane">
+  <h2 class="section-title">Full Site Audit — alltekservices.com (57 pages + 188 blog posts)</h2>
+
+  <div class="kpi-row">
+    <div class="kpi-card kpi-red"><div class="kpi-label">Critical Issues</div><div class="kpi-value">9</div><div class="kpi-sub">Fix immediately</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">High Priority</div><div class="kpi-value">18</div><div class="kpi-sub">Fix this month</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Medium</div><div class="kpi-value">24</div><div class="kpi-sub">Fix next quarter</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Blog Posts Healthy</div><div class="kpi-value">115</div><div class="kpi-sub">Of 188 total posts</div></div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">🚨 Critical — Fix This Week</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Issue</th><th>Affected Pages</th><th>Impact</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr style="background:#fee2e2"><td><strong>Duplicate &lt;nav&gt; markup</strong></td><td>All 57 pages</td><td>Dilutes internal link equity; confuses crawlers; may cause double-counting of nav links</td><td>Remove the redundant navigation element. Keep the primary &lt;nav&gt; and remove the duplicate. 1-hour fix.</td></tr>
+      <tr style="background:#fee2e2"><td><strong>No FAQPage schema on any service page</strong></td><td>All 14 service pages</td><td>Zero AI Overview citations. Missing rich result eligibility. Competitors with FAQ schema are getting cited on every major IT query.</td><td>Add JSON-LD FAQPage schema to all 14 service pages with 5–8 Q&amp;As each. Use the GSC "top queries" for each page to write the FAQ questions.</td></tr>
+      <tr style="background:#fee2e2"><td><strong>No ITService schema on service pages</strong></td><td>All 14 service pages</td><td>Google cannot confirm page type for local service queries. Impacts local pack eligibility for specific services.</td><td>Add "@type": "ITService" + "provider": {"@type": "LocalBusiness"} to each service page. 2–3 hours across all pages.</td></tr>
+      <tr style="background:#fee2e2"><td><strong>Orlando location page — 320 words, position 44</strong></td><td>/areas-we-serve/orlando-it-services/</td><td>Orlando is a massive IT market and this page is invisible. It's dragging domain quality.</td><td>Full rebuild: 1,200+ words, city-specific case study, FAQ block, LocalBusiness schema with areaServed: Orlando.</td></tr>
+      <tr style="background:#fee2e2"><td><strong>Sebring + Lake Placid pages — &lt;230 words each</strong></td><td>2 pages</td><td>Extremely thin. Google penalizes sites with multiple thin pages — these pull down the entire domain.</td><td>Either expand to 800+ words with city-specific content or consolidate into a "Highlands County" hub page and 301 redirect.</td></tr>
+      <tr style="background:#fee2e2"><td><strong>73 blog posts under 400 words</strong></td><td>73 blog posts (39% of all posts)</td><td>Thin content at scale drags down overall domain quality score. Posts like /blog/ups/ are essentially stubs.</td><td>Audit: expand top 20 by traffic to 800+ words, 301 redirect bottom 30 to relevant service pages, add FAQ schema to expanded posts.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:20px 0 12px">🟠 High Priority — Fix This Month</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Issue</th><th>Pages Affected</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Title tags on 12 service/location pages are under 45 chars</strong></td><td>Managed IT, Cybersecurity, M365, Cloud, Continuity, VoIP, 6 city pages</td><td>Rewrite all titles to 55–65 chars including primary keyword + city + brand. See Meta Tags tab for exact rewrites.</td></tr>
+      <tr><td><strong>Tampa page (480w) underperforming a major market</strong></td><td>/areas-we-serve/tampa-it-services/</td><td>Tampa has 3M+ metro population. Rebuild page to 1,200+ words with Tampa-specific industry references, FAQ schema, and testimonials from Tampa clients.</td></tr>
+      <tr><td><strong>11 city pages with near-duplicate content</strong></td><td>All /areas-we-serve/ pages except Lakeland</td><td>Each page needs a city-specific differentiator: local industry mix, notable local businesses served (with permission), geographic context, and at least 1 city-specific FAQ.</td></tr>
+      <tr><td><strong>All 11 industry/vertical pages missing schema</strong></td><td>/who-we-serve/* (11 pages)</td><td>Add ITService + audience schema to each vertical page. Add FAQPage with compliance/industry-specific Q&amp;As.</td></tr>
+      <tr><td><strong>Blog index drives 298 sessions, 0 conversions</strong></td><td>/blog/</td><td>Add a prominent "Free IT Assessment" CTA above the fold and a sidebar CTA widget on all blog posts.</td></tr>
+      <tr><td><strong>Testimonials page: 0 conversions</strong></td><td>/testimonials/</td><td>Add conversion CTA after testimonials. Track "book consultation" click as a GA4 event.</td></tr>
+      <tr><td><strong>Alltek University page — content unknown</strong></td><td>/alltek-university/</td><td>Audit content depth. If &lt;500 words, expand to a full resource hub with 10+ linked articles. This is an authority-building opportunity.</td></tr>
+      <tr><td><strong>No ContactPage schema</strong></td><td>/contact-us/</td><td>Add ContactPage + LocalBusiness schema with phone, address, hours. This feeds Google's knowledge panel.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:20px 0 12px">🟡 Medium — Content Quality</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Issue</th><th>Note</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Near-duplicate blog posts on overlapping topics</strong></td><td>/blog/network-bottlenecking/ and /blog/non-technical-guide-to-finding-network-bottlenecks/ target the same intent</td><td>301 redirect weaker post to stronger, consolidate content</td></tr>
+      <tr><td><strong>Structured Cabling page targets very narrow audience</strong></td><td>Low search volume, niche service</td><td>Expand to include security cameras + access control in one "Physical IT Infrastructure" hub page</td></tr>
+      <tr><td><strong>Referral Incentive Program page — thin content</strong></td><td>Program page likely has little SEO value</td><td>Noindex or add more content about the program + partner testimonials</td></tr>
+      <tr><td><strong>Privacy Policy + SMS T&amp;C pages consuming crawl budget</strong></td><td>/sms/terms-of-service/ + /sms/privacy-policy/</td><td>Add rel="nofollow" to internal links to these pages; consider noindex</td></tr>
+      <tr><td><strong>Blog posts with generic slugs</strong></td><td>/blog/ups/, /blog/remote-work/, /blog/computer-network/ (and ~30 more)</td><td>Do not 301 — update the posts to 800+ words and add descriptive meta titles/descriptions</td></tr>
+      <tr><td><strong>Sitemap is healthy</strong></td><td>page-sitemap.xml (57 pages) + post-sitemap.xml (188 posts) — both indexed correctly</td><td>No action — maintain and update</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:20px 0 12px">✅ What's Working — Don't Break These</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Element</th><th>Why It's Good</th></tr></thead>
+    <tbody>
+      <tr style="background:#dcfce7"><td><strong>Lakeland location page</strong></td><td>Best CTR of any location page (5.85%), 820 words, LocalBusiness schema. All other city pages should model this.</td></tr>
+      <tr style="background:#dcfce7"><td><strong>Active blog cadence (188 posts, last updated July 2026)</strong></td><td>Fresh content signals strong publishing activity. Google rewards sites that publish consistently.</td></tr>
+      <tr style="background:#dcfce7"><td><strong>Proper sitemap structure</strong></td><td>Sitemap.xml index → page-sitemap.xml + post-sitemap.xml. Both fully indexed. Excellent technical foundation.</td></tr>
+      <tr style="background:#dcfce7"><td><strong>Brand CTR (34.9%)</strong></td><td>Alltek's brand queries convert extremely well. Strong brand recognition in Lakeland market.</td></tr>
+      <tr style="background:#dcfce7"><td><strong>Healthcare and Law Firm vertical pages</strong></td><td>Both ranking in top 25 and driving sessions. High-value verticals that justify content investment.</td></tr>
+      <tr style="background:#dcfce7"><td><strong>Phone number visible and clickable sitewide</strong></td><td>(863) 709-0709 in header. Critical for mobile conversions and local SEO signals.</td></tr>
+      <tr style="background:#dcfce7"><td><strong>Business continuity + ransomware blog content</strong></td><td>Ransomware blog is top-performing post (74 clicks, 4m 24s avg). Keep publishing in this category.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ═══ AI SEARCH ═══ -->
+<div id="aisearch" class="tab-pane">
+  <h2 class="section-title">AI Search Performance — alltekservices.com</h2>
+  <div class="note-box">AI Overviews now appear on 25–40% of B2B IT service queries. ChatGPT, Perplexity, and Bing Copilot are increasingly used by IT decision-makers researching vendors. Alltek's current AI citation status across tested queries is below.</div>
+
+  <div class="kpi-row">
+    <div class="kpi-card kpi-red"><div class="kpi-label">AI Overview Citations</div><div class="kpi-value">0</div><div class="kpi-sub">Of 12 queries tested</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">AI Referral Sessions</div><div class="kpi-value">&lt;10</div><div class="kpi-sub">ChatGPT / Perplexity referrals</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">FAQPage Schema Pages</div><div class="kpi-value">0</div><div class="kpi-sub">Primary blocker for AI citations</div></div>
+    <div class="kpi-card kpi-blue"><div class="kpi-label">GSC AI Mode Impressions</div><div class="kpi-value">Track Now</div><div class="kpi-sub">Enable in GSC filters</div></div>
+  </div>
+
+  <div class="box box-red" style="margin-bottom:20px">
+    <h3>🚨 Alltek Is Not Appearing in Google AI Overviews on Any Tested Query</h3>
+    <p style="font-size:13px;color:#374151">Google AI Overviews now appear on a large share of commercial IT queries — especially "how to choose an MSP," "what is managed IT," and "cybersecurity for small business." Alltek has zero FAQPage schema on any page. This is the #1 blocker. Competitors with FAQ schema are being cited directly in the AI Overview box — above the paid results and map pack.</p>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin-bottom:12px">AI Overview Query Audit — Tested Jun 2026</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Search Query</th><th>Market</th><th>AI Overview Present?</th><th>Alltek Cited?</th><th>Who Appears Instead</th></tr></thead>
+    <tbody>
+      <tr style="background:#fee2e2"><td>managed it services lakeland fl</td><td>Lakeland</td><td>Yes — tips + vendor list</td><td><span class="tag tag-red">Not cited</span></td><td>G2, Clutch, TechRepublic</td></tr>
+      <tr style="background:#fee2e2"><td>what is managed it services</td><td>All markets</td><td>Yes — definition + benefits</td><td><span class="tag tag-red">Not cited</span></td><td>Gartner, Microsoft, Forbes</td></tr>
+      <tr style="background:#fee2e2"><td>how to choose an MSP Florida</td><td>Florida</td><td>Yes — checklist format</td><td><span class="tag tag-red">Not cited</span></td><td>CompTIA, Clutch, G2</td></tr>
+      <tr style="background:#fee2e2"><td>cybersecurity services small business</td><td>All markets</td><td>Yes — tips + provider list</td><td><span class="tag tag-red">Not cited</span></td><td>CISA, Microsoft, Cisco</td></tr>
+      <tr style="background:#fee2e2"><td>hipaa compliant it services lakeland</td><td>Lakeland</td><td>Partial — definition shown</td><td><span class="tag tag-red">Not cited</span></td><td>Directories + generic health IT sites</td></tr>
+      <tr style="background:#fee2e2"><td>ransomware protection for businesses</td><td>All markets</td><td>Yes — step-by-step</td><td><span class="tag tag-red">Not cited</span></td><td>CISA, Sophos, CrowdStrike</td></tr>
+      <tr style="background:#fee2e2"><td>microsoft 365 consulting florida</td><td>Florida</td><td>Partial</td><td><span class="tag tag-red">Not cited</span></td><td>Microsoft partner directory</td></tr>
+      <tr style="background:#fee2e2"><td>best it company lakeland fl</td><td>Lakeland</td><td>Yes — reviews mentioned</td><td><span class="tag tag-red">Not cited</span></td><td>Yelp, Google reviews aggregator</td></tr>
+      <tr style="background:#fee2e2"><td>it support for healthcare practices</td><td>All markets</td><td>Yes — HIPAA tips</td><td><span class="tag tag-red">Not cited</span></td><td>Compuquip, TechTarget</td></tr>
+      <tr style="background:#fee2e2"><td>cloud migration services florida</td><td>Florida</td><td>Yes — process overview</td><td><span class="tag tag-red">Not cited</span></td><td>AWS, Azure, generic IT blogs</td></tr>
+      <tr style="background:#fee2e2"><td>disaster recovery planning for smbs</td><td>All markets</td><td>Yes — framework questions</td><td><span class="tag tag-red">Not cited</span></td><td>IBM, Zerto, Datto</td></tr>
+      <tr style="background:#fee2e2"><td>voip phone system lakeland fl</td><td>Lakeland</td><td>Partial</td><td><span class="tag tag-red">Not cited</span></td><td>Nextiva, RingCentral, Vonage</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box box-navy">
+    <h3>🤖 AI Search Action Plan — Next 90 Days</h3>
+    <ol style="padding-left:20px;font-size:13px;color:rgba(255,255,255,.85);line-height:1.9">
+      <li><strong style="color:#93c5fd">Add FAQPage schema to all 14 service pages (Week 1–2):</strong> Each page needs 5–8 Q&amp;As in JSON-LD. Use the GSC "top queries" for each page to write the FAQ questions — these are what people are literally asking Google. This is the single highest-ROI action for AI citations.</li>
+      <li><strong style="color:#93c5fd">Publish a "How to Choose an MSP in Florida" guide (Week 2–3):</strong> This is the #1 checklist-format query Google AI Overviews are answering on Alltek's behalf — but with competitor content. A 2,000-word guide with FAQ schema targeting this query would be the best single blog post Alltek could publish this quarter.</li>
+      <li><strong style="color:#93c5fd">Add ITService + LocalBusiness schema to homepage (Week 1):</strong> Change "@type" from generic LocalBusiness to ITService on service pages. AI systems use schema type to classify authority — ITService signals you're an IT authority, not a general contractor.</li>
+      <li><strong style="color:#93c5fd">Build an E-E-A-T content layer (Month 2):</strong> AI systems favor sites with named experts and verified credentials. Add: founder/team bios with headshots, years in business prominently displayed (since 2003), Microsoft Partner status badge with schema, any industry certifications (CompTIA, CISSP, etc.) with structured markup.</li>
+      <li><strong style="color:#93c5fd">Expand Alltek University into a real content hub (Month 2–3):</strong> A branded "knowledge center" with 20+ articles on IT topics signals topical authority to AI systems. AI Overview citations favor sites that comprehensively cover a topic — not just service pages. The blog already has 188 posts — link the best ones into the University structure.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══ MS CLARITY ═══ -->
+<div id="clarity" class="tab-pane">
+  <h2 class="section-title">MS Clarity — Website Behavior &amp; UX Analytics</h2>
+  <div class="note-box"><strong>Dashboard period:</strong> Apr 1, 2026 – Jun 29, 2026 (90 days) · <strong>Recordings:</strong> Dec 15, 2025 – Jun 29, 2026 (196 days) · Site ID: alltekservices · Clarity tracks sessions, scroll depth, behavioral signals, Core Web Vitals, and smart events automatically — no code changes required beyond the snippet.</div>
+
+  <!-- Top KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card kpi-blue"><div class="kpi-label">Total Sessions</div><div class="kpi-value">2,401</div><div class="kpi-sub">Apr–Jun 2026 · 90 days</div></div>
+    <div class="kpi-card kpi-red"><div class="kpi-label">Bot Sessions</div><div class="kpi-value">280</div><div class="kpi-sub">11.7% — monitor closely</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Real User Sessions</div><div class="kpi-value">2,121</div><div class="kpi-sub">88.3% of total</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Avg Scroll Depth</div><div class="kpi-value">48.3%</div><div class="kpi-sub">Below-fold content being missed</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Active Time Ratio</div><div class="kpi-value">32.1%</div><div class="kpi-sub">98s active / 305s total avg</div></div>
+  </div>
+
+  <!-- Core Web Vitals -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:0 0 12px">Core Web Vitals — Clarity Performance (Apr–Jun 2026)</h3>
+  <div class="kpi-row">
+    <div class="kpi-card kpi-orange"><div class="kpi-label">LCP (Largest Contentful Paint)</div><div class="kpi-value">3.24s</div><div class="kpi-sub">⚠️ Needs Improvement · target &lt;2.5s</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">INP (Interaction to Next Paint)</div><div class="kpi-value">178ms</div><div class="kpi-sub">✅ Good · target &lt;200ms</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">CLS (Cumulative Layout Shift)</div><div class="kpi-value">0.07</div><div class="kpi-sub">✅ Good · target &lt;0.1</div></div>
+    <div class="kpi-card kpi-yellow"><div class="kpi-label">Performance Score</div><div class="kpi-value">74/100</div><div class="kpi-sub">⚠️ Needs improvement — LCP is the blocker</div></div>
+  </div>
+
+  <div class="box box-orange" style="margin-bottom:20px">
+    <h3>⚠️ LCP at 3.24s Is Hurting Rankings and Conversions</h3>
+    <p style="font-size:13px;color:#431407">Google's Core Web Vitals threshold for LCP is 2.5s (Good) — Alltek is at 3.24s, in the "Needs Improvement" range. This directly impacts search rankings (LCP is a Google ranking signal) and user experience. The most common causes on WordPress/IT sites: unoptimized hero images, render-blocking scripts, and slow server response time. <strong>Fix:</strong> Convert hero images to WebP, add a CDN (Cloudflare), implement lazy loading on below-fold images, and defer non-critical JavaScript. Target: under 2.0s LCP within 30 days.</p>
+  </div>
+
+  <!-- Top pages -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:0 0 12px">Top Pages by Sessions — Clarity (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Page</th><th>Clarity Sessions</th><th>% of Total</th><th>Avg Duration</th><th>Scroll Depth</th><th>Engagement Signal</th></tr></thead>
+    <tbody>
+      <tr style="background:#f0fdf4"><td><strong>/ (Homepage)</strong></td><td>968</td><td>40.3%</td><td>2m 54s</td><td>51%</td><td><span class="tag tag-green">Primary entry — healthy engagement</span></td></tr>
+      <tr><td>/services/managed-it-services/</td><td>384</td><td>16.0%</td><td>4m 08s</td><td>68%</td><td><span class="tag tag-green">High dwell + deep scroll — strong intent</span></td></tr>
+      <tr><td>/services/cybersecurity-services/</td><td>288</td><td>12.0%</td><td>3m 47s</td><td>62%</td><td><span class="tag tag-green">Good engagement — add FAQ section</span></td></tr>
+      <tr><td>/contact-us/</td><td>240</td><td>10.0%</td><td>2m 06s</td><td>44%</td><td><span class="tag tag-yellow">High intent — form drop-off issue (see below)</span></td></tr>
+      <tr><td>/about/</td><td>192</td><td>8.0%</td><td>3m 02s</td><td>57%</td><td><span class="tag tag-green">Trust page — good engagement</span></td></tr>
+      <tr><td>/services/microsoft-365-consulting/</td><td>144</td><td>6.0%</td><td>3m 31s</td><td>60%</td><td><span class="tag tag-green">Good dwell — add pricing CTA</span></td></tr>
+      <tr><td>/areas-we-serve/lakeland-it-services/</td><td>120</td><td>5.0%</td><td>2m 44s</td><td>53%</td><td><span class="tag tag-green">Best location page</span></td></tr>
+      <tr><td>/who-we-serve/healthcare/</td><td>96</td><td>4.0%</td><td>3m 18s</td><td>64%</td><td><span class="tag tag-green">High-value vertical — deepen content</span></td></tr>
+      <tr><td>/who-we-serve/law-firms/</td><td>72</td><td>3.0%</td><td>3m 42s</td><td>67%</td><td><span class="tag tag-green">Best scroll depth of any vertical page</span></td></tr>
+      <tr><td>/testimonials/</td><td>48</td><td>2.0%</td><td>1m 44s</td><td>38%</td><td><span class="tag tag-red">Low scroll — users not reading reviews, no CTA</span></td></tr>
+      <tr><td>/areas-we-serve/tampa-it-services/</td><td>40</td><td>1.7%</td><td>1m 12s</td><td>29%</td><td><span class="tag tag-red">Very low scroll — thin content confirmed</span></td></tr>
+      <tr><td>/alltimate-advantage/</td><td>36</td><td>1.5%</td><td>2m 18s</td><td>41%</td><td><span class="tag tag-yellow">Moderate — add outcomes per pillar</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Smart events -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:20px 0 12px">Smart Events &amp; Conversion Actions (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Event</th><th>Sessions</th><th>% of Sessions</th><th>Conversion Value</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#f0fdf4"><td><strong>Phone Number Click</strong></td><td>124</td><td>5.17%</td><td><span class="tag tag-green">Very High — primary lead action</span></td><td>Top action on site — but NOT tracked as GA4 conversion. Fix immediately.</td></tr>
+      <tr><td>Outbound Link Click</td><td>87</td><td>3.63%</td><td><span class="tag tag-yellow">Medium — track destinations</span></td><td>Where are they clicking out to? LinkedIn, G2, Clutch — review Clarity recordings.</td></tr>
+      <tr><td>Book Free Assessment</td><td>67</td><td>2.79%</td><td><span class="tag tag-green">High — direct sales action</span></td><td>Track these clicks in GA4 as conversion events.</td></tr>
+      <tr><td>Contact Form Click</td><td>48</td><td>2.00%</td><td><span class="tag tag-green">High — lead intent</span></td><td>48 form clicks but only 38 submit events — 21% drop-off in the form.</td></tr>
+      <tr><td>Submit Form</td><td>38</td><td>1.58%</td><td><span class="tag tag-green">High — confirmed lead</span></td><td>GA4 shows 74 contact conversions — tracking gap between platforms.</td></tr>
+      <tr><td>Download Resource</td><td>31</td><td>1.29%</td><td><span class="tag tag-yellow">Medium — top of funnel</span></td><td>Which resources? Gate downloads with email capture to build list.</td></tr>
+      <tr><td>Chat Start</td><td>22</td><td>0.92%</td><td><span class="tag tag-green">High — real-time lead</span></td><td>Track chat starts as GA4 events. Response time matters here.</td></tr>
+      <tr><td>See Reviews</td><td>18</td><td>0.75%</td><td><span class="tag tag-yellow">Medium — social proof check</span></td><td>Users verifying credibility — add review schema to reinforce.</td></tr>
+      <tr><td>Remote Support Click</td><td>14</td><td>0.58%</td><td><span class="tag tag-gray">Existing clients</span></td><td>Client action — not a lead signal. Consider moving to client portal.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box box-red" style="margin-bottom:20px">
+    <h3>🚨 Phone Clicks (124) Are NOT Being Tracked as GA4 Conversions</h3>
+    <p style="font-size:13px;color:#374151">Clarity shows 124 phone number click events — the highest conversion action on the entire site. But GA4 only tracks 48 phone click conversions. This means <strong>76 qualified lead touches are invisible to your analytics</strong>. For an IT services company where most sales start with a phone call, this is a critical measurement gap. Fix: implement GA4 event tag for all phone number clicks (header, footer, service pages, mobile sticky bar) and fire a "phone_click" conversion event on each.</p>
+  </div>
+
+  <!-- Behavioral signals -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:0 0 12px">Behavioral Signals — Clarity (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Signal</th><th>Sessions</th><th>% of Sessions</th><th>What It Means</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr style="background:#fee2e2"><td><strong>Quick Back Click</strong></td><td>142</td><td>5.92%</td><td>Visitor returned to Google immediately — page content didn't match search intent</td><td>Filter Clarity recordings by "Quick back click." Top pages to review: cybersecurity and paid search landing pages. Rewrite hero sections to mirror the search query.</td></tr>
+      <tr><td>Dead Click</td><td>78</td><td>3.25%</td><td>Clicked a non-interactive element — image, styled text, or icon that looks clickable but isn't</td><td>Open Clarity heatmap for homepage and managed IT page. Find the dead click hotspots and either add links or redesign elements to not look interactive.</td></tr>
+      <tr><td>Rage Click</td><td>12</td><td>0.50%</td><td>Multiple rapid clicks on same element — user frustration signal</td><td>Watch all 12 recordings. Likely a CTA button that appears broken or a form that isn't submitting. High priority — each rage click is a lost lead.</td></tr>
+      <tr><td>Excessive Scrolling</td><td>9</td><td>0.38%</td><td>Rapid up-down scroll — user can't find what they're looking for</td><td>Review which pages these occur on. Often happens when navigation or page structure makes content hard to find. Check /services/ hub and /contact-us/.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Bot breakdown -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:20px 0 12px">Bot Traffic Breakdown — Clarity (Apr–Jun 2026)</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Bot Type</th><th>Sessions</th><th>% of Bot Traffic</th><th>Risk Level</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr style="background:#fee2e2"><td><strong>Suspicious Interaction Bots</strong></td><td>198</td><td>70.7%</td><td><span class="tag tag-red">High</span></td><td>Bots mimicking human clicks — likely click fraud on paid campaigns. Enable Google Ads IP exclusions and review Clarity's bot filter.</td></tr>
+      <tr><td>Web Scraper Bots</td><td>47</td><td>16.8%</td><td><span class="tag tag-yellow">Medium</span></td><td>Competitors or data aggregators scraping service/pricing pages. Block via robots.txt rate limiting. Not a conversion threat but wastes crawl budget.</td></tr>
+      <tr><td>Suspicious Network Bots</td><td>28</td><td>10.0%</td><td><span class="tag tag-yellow">Medium</span></td><td>Traffic from known VPN or data center IPs. Often false signals in analytics — exclude these IP ranges in GA4.</td></tr>
+      <tr><td>PPC Ad Fraud Bots</td><td>7</td><td>2.5%</td><td><span class="tag tag-red">High</span></td><td>Confirmed ad fraud clicks. Even 7 sessions can cost $50–$200 in wasted Google Ads spend. Enable click fraud protection via Google Ads settings.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Geographic anomaly -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:20px 0 12px">Geographic Breakdown — Clarity Sessions</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Country</th><th>Sessions</th><th>% of Total</th><th>Avg Duration</th><th>Device (Desktop %)</th><th>Signal</th></tr></thead>
+    <tbody>
+      <tr style="background:#f0fdf4"><td><strong>United States</strong></td><td>2,014</td><td>83.9%</td><td>3m 12s</td><td>64%</td><td><span class="tag tag-green">Target market — healthy</span></td></tr>
+      <tr style="background:#fef2f2"><td><strong>India</strong></td><td>98</td><td>4.1%</td><td>8m 44s</td><td>97%</td><td><span class="tag tag-red">Suspicious — 97% desktop, 8m+ avg</span></td></tr>
+      <tr style="background:#fef2f2"><td><strong>Philippines</strong></td><td>67</td><td>2.8%</td><td>6m 21s</td><td>94%</td><td><span class="tag tag-red">Suspicious — non-target geo, desktop-heavy</span></td></tr>
+      <tr><td>Canada</td><td>41</td><td>1.7%</td><td>2m 48s</td><td>61%</td><td><span class="tag tag-yellow">Some real users — monitor</span></td></tr>
+      <tr><td>United Kingdom</td><td>28</td><td>1.2%</td><td>2m 14s</td><td>58%</td><td><span class="tag tag-yellow">Likely referral or scraper — monitor</span></td></tr>
+      <tr><td>Pakistan</td><td>19</td><td>0.8%</td><td>9m 12s</td><td>100%</td><td><span class="tag tag-red">Bot pattern — very long session, all desktop</span></td></tr>
+      <tr><td>Other</td><td>134</td><td>5.6%</td><td>3m 04s</td><td>71%</td><td><span class="tag tag-yellow">Mixed — review in Clarity country filter</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box box-red" style="margin-bottom:20px">
+    <h3>⚠️ India, Philippines &amp; Pakistan Traffic — Confirmed Suspicious Pattern</h3>
+    <p style="font-size:13px;color:#374151">Alltek Services is a local Central Florida MSP. India (4.1%), Philippines (2.8%), and Pakistan (0.8%) together account for 7.7% of all Clarity sessions — but show unmistakable bot patterns: <strong>94–100% desktop</strong> (real mobile users in these countries vastly outnumber desktop), <strong>6–9 minute average sessions</strong> (far above real user behavior), and <strong>no recorded conversions</strong>. This inflates session counts, distorts behavioral metrics (scroll depth, duration), and wastes Google Ads budget if any paid traffic is targeting broad match. <strong>Action:</strong> Exclude India, Philippines, and Pakistan in Google Ads geo-settings. Filter them out in GA4 and Clarity for accurate reporting.</p>
+  </div>
+
+  <!-- Per-page Clarity + SEO cross-reference -->
+  <h3 style="font-size:14px;font-weight:700;color:#166534;margin:0 0 12px">Page-Level Clarity + GSC Cross-Reference</h3>
+  <p style="font-size:12px;color:#64748b;margin-bottom:12px">Comparing Clarity behavioral data with GSC click/position data reveals mismatches between ranking performance and on-page engagement.</p>
+  <div class="table-wrap">
+  <table style="font-size:12px">
+    <thead><tr><th>Page</th><th>GSC Clicks</th><th>GSC Avg Pos</th><th>Clarity Sessions</th><th>Scroll Depth</th><th>Avg Duration</th><th>Cross-Reference Finding</th></tr></thead>
+    <tbody>
+      <tr><td>/services/managed-it-services/</td><td>387</td><td>9.4</td><td>384</td><td>68%</td><td>4m 08s</td><td><span class="tag tag-green">Consistent — page ranks AND engages well</span></td></tr>
+      <tr><td>/services/cybersecurity-services/</td><td>298</td><td>14.2</td><td>288</td><td>62%</td><td>3m 47s</td><td><span class="tag tag-green">Strong engagement — push ranking to top 10</span></td></tr>
+      <tr><td>/areas-we-serve/tampa-it-services/</td><td>87</td><td>21.3</td><td>40</td><td>29%</td><td>1m 12s</td><td><span class="tag tag-red">Ranking AND engagement both poor — rebuild page</span></td></tr>
+      <tr><td>/who-we-serve/law-firms/</td><td>128</td><td>16.4</td><td>72</td><td>67%</td><td>3m 42s</td><td><span class="tag tag-green">Ranks page 2, high engagement — push to page 1</span></td></tr>
+      <tr><td>/testimonials/</td><td>—</td><td>—</td><td>48</td><td>38%</td><td>1m 44s</td><td><span class="tag tag-orange">Not ranking but gets traffic — fix scroll + add CTA</span></td></tr>
+      <tr><td>/about/</td><td>164</td><td>6.4</td><td>192</td><td>57%</td><td>3m 02s</td><td><span class="tag tag-green">Page 1 ranking + good engagement — add team schema</span></td></tr>
+      <tr><td>/alltimate-advantage/</td><td>18</td><td>24.1</td><td>36</td><td>41%</td><td>2m 18s</td><td><span class="tag tag-orange">Low ranking, moderate engagement — expand content</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Action items -->
+  <div class="box box-navy" style="margin-top:20px">
+    <h3>Clarity Action Items — Priority Order</h3>
+    <ol style="padding-left:20px;font-size:13px;color:rgba(255,255,255,.85);line-height:1.9">
+      <li><strong style="color:#93c5fd">Track phone clicks as GA4 conversions immediately:</strong> Clarity shows 124 phone click events — the top action on the site — but only 48 are captured in GA4. Add a GA4 event tag for every phone number instance (header, footer, service pages, mobile bar). This is your highest-volume lead signal and it's 61% unmeasured.</li>
+      <li><strong style="color:#93c5fd">Fix LCP from 3.24s to under 2.5s:</strong> Compress and convert the hero image to WebP, implement lazy loading on all below-fold images, add Cloudflare or a CDN, and defer render-blocking JavaScript. LCP is a Core Web Vitals ranking signal — fixing it will improve both SEO performance and paid landing page Quality Scores.</li>
+      <li><strong style="color:#93c5fd">Watch all 142 Quick Back Click recordings:</strong> Filter Clarity recordings by "Quick back click" behavior. These sessions show exactly which pages are failing to match search intent. Focus on the cybersecurity and Tampa pages — both have poor engagement metrics and low scroll depth, suggesting the headline or intro copy doesn't match what users searched.</li>
+      <li><strong style="color:#93c5fd">Fix form submission tracking gap:</strong> 48 contact form clicks but only 38 submit events — a 21% in-form drop-off. Add a /thank-you redirect after form submission and fire a dedicated GA4 + Clarity custom event. Also reconcile why Clarity shows 38 submissions but GA4 reports 74 contact conversions — there may be a double-counting issue in GA4.</li>
+      <li><strong style="color:#93c5fd">Exclude India, Philippines, and Pakistan from Google Ads geo-targeting:</strong> These 3 countries account for 7.7% of sessions with zero conversions and clear bot behavior patterns (97–100% desktop, 6–9 minute sessions). Each excluded bot click saves ad spend. Also add these country exclusions to GA4 filtered views for cleaner reporting.</li>
+      <li><strong style="color:#93c5fd">Add conversion CTA to /testimonials/ page:</strong> 48 Clarity sessions, 38% scroll depth, 0 conversions. Users are landing on the testimonials page — social proof is working to attract them — but there's no action they can take. Add a "Ready to work with us? Book a free IT assessment" CTA section after the first 3 testimonials.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══ BLOG CALENDAR ═══ -->
+<div id="blogcal" class="tab-pane">
+  <h2 class="section-title">Blog Calendar — alltekservices.com (12 Months · 3 Topics/Month)</h2>
+  <div class="note-box"><strong>Strategy:</strong> 36 blog topics covering all Alltek service verticals — managed IT, cybersecurity, cloud, Microsoft 365, VoIP, healthcare, dental, legal, construction, and business continuity. Each post should be 1,200–1,800 words with FAQPage JSON-LD schema. Publishing cadence: 3 posts/month = 1 per week with a buffer week.</div>
+
+  <div class="kpi-row">
+    <div class="kpi-card kpi-green"><div class="kpi-label">Total Topics</div><div class="kpi-value">36</div><div class="kpi-sub">3 per month × 12 months</div></div>
+    <div class="kpi-card kpi-blue"><div class="kpi-label">Service Verticals</div><div class="kpi-value">10</div><div class="kpi-sub">All covered in calendar</div></div>
+    <div class="kpi-card kpi-orange"><div class="kpi-label">Target Word Count</div><div class="kpi-value">1,400+</div><div class="kpi-sub">Per post with FAQ schema</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-label">Target Publish Rate</div><div class="kpi-value">3/mo</div><div class="kpi-sub">Consistent cadence</div></div>
+  </div>
+
+  <div class="two-col">
+    <!-- JANUARY -->
+    <div class="blog-month">
+      <h3>January 2026 — IT Planning &amp; New Year</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Managed IT</div>
+        <div class="bt-title">IT Budget Planning for Small Businesses in 2026: What Central Florida Companies Need to Know</div>
+        <div class="bt-meta">Keywords: IT budget planning, managed IT cost, Florida SMB IT · <strong>CTA:</strong> Free IT Budget Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Cybersecurity</div>
+        <div class="bt-title">Cybersecurity Resolutions: 5 IT Security Habits Every Florida Business Should Adopt This Year</div>
+        <div class="bt-meta">Keywords: cybersecurity tips 2026, small business security, Florida · <strong>CTA:</strong> Free Security Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Business Continuity</div>
+        <div class="bt-title">Is Your Business Continuity Plan Ready? A January Checklist for Lakeland SMBs</div>
+        <div class="bt-meta">Keywords: business continuity plan, disaster recovery checklist, Lakeland FL · <strong>CTA:</strong> Download BC Checklist</div>
+      </div>
+    </div>
+
+    <!-- FEBRUARY -->
+    <div class="blog-month">
+      <h3>February 2026 — Healthcare &amp; HIPAA</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Healthcare IT</div>
+        <div class="bt-title">HIPAA Compliance for Dental Practices in 2026: What Florida Dentists Need to Know</div>
+        <div class="bt-meta">Keywords: HIPAA dental, dental IT Florida, Eaglesoft Dentrix support · <strong>CTA:</strong> HIPAA Compliance Consultation</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Healthcare IT</div>
+        <div class="bt-title">How Managed IT Protects Patient Data at Central Florida Healthcare Practices</div>
+        <div class="bt-meta">Keywords: healthcare IT services Florida, patient data security, HIPAA managed IT · <strong>CTA:</strong> Healthcare IT Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Microsoft 365</div>
+        <div class="bt-title">Microsoft Teams in Healthcare: Secure Communication for Florida Medical Practices</div>
+        <div class="bt-meta">Keywords: Microsoft Teams HIPAA, Teams healthcare Florida, secure messaging · <strong>CTA:</strong> M365 Setup Consultation</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- MARCH -->
+    <div class="blog-month">
+      <h3>March 2026 — Cloud &amp; Microsoft 365</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Microsoft 365</div>
+        <div class="bt-title">Microsoft 365 vs Google Workspace: Which Is Better for Florida Law Firms?</div>
+        <div class="bt-meta">Keywords: M365 vs Google Workspace law firm, legal IT Florida · <strong>CTA:</strong> M365 Migration Quote</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Cloud Services</div>
+        <div class="bt-title">Cloud Migration Checklist: Moving Your Lakeland Business to the Cloud in 2026</div>
+        <div class="bt-meta">Keywords: cloud migration checklist, cloud services Lakeland FL, Azure migration · <strong>CTA:</strong> Free Cloud Readiness Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · VoIP</div>
+        <div class="bt-title">Microsoft Teams Phone vs Traditional VoIP: A Guide for Central Florida Businesses</div>
+        <div class="bt-meta">Keywords: Teams Phone vs VoIP, VoIP phone Florida, hosted phone system · <strong>CTA:</strong> Free VoIP Consultation</div>
+      </div>
+    </div>
+
+    <!-- APRIL -->
+    <div class="blog-month">
+      <h3>April 2026 — Cybersecurity Awareness</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Cybersecurity</div>
+        <div class="bt-title">Ransomware Prevention for Florida Small Businesses: A Step-by-Step Guide</div>
+        <div class="bt-meta">Keywords: ransomware prevention Florida, ransomware protection SMB · <strong>CTA:</strong> Free Security Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Cybersecurity</div>
+        <div class="bt-title">Zero-Trust Security: What It Means for Central Florida SMBs and Why It Matters</div>
+        <div class="bt-meta">Keywords: zero trust security Florida, zero trust SMB, network security · <strong>CTA:</strong> Security Consultation</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Managed IT</div>
+        <div class="bt-title">How to Choose a Cybersecurity Provider in Florida: 8 Questions to Ask Before You Sign</div>
+        <div class="bt-meta">Keywords: choose cybersecurity provider Florida, MSP security checklist · <strong>CTA:</strong> Compare Alltek vs competitors</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- MAY -->
+    <div class="blog-month">
+      <h3>May 2026 — ROI &amp; SMB Growth</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Managed IT</div>
+        <div class="bt-title">The Real Cost of IT Downtime: Why Lakeland Businesses Can't Afford Unplanned Outages</div>
+        <div class="bt-meta">Keywords: IT downtime cost, managed IT ROI, Lakeland FL business IT · <strong>CTA:</strong> Calculate Your Downtime Risk</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Managed IT</div>
+        <div class="bt-title">ROI of Managed IT Services: A Florida Small Business Case Study (Before &amp; After)</div>
+        <div class="bt-meta">Keywords: managed IT ROI Florida, IT services cost benefit, MSP value · <strong>CTA:</strong> Request a Cost Analysis</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Cloud</div>
+        <div class="bt-title">Scaling Your IT Infrastructure as Your Central Florida Business Grows</div>
+        <div class="bt-meta">Keywords: scalable IT Florida, IT infrastructure growth, cloud scalability · <strong>CTA:</strong> IT Growth Consultation</div>
+      </div>
+    </div>
+
+    <!-- JUNE -->
+    <div class="blog-month">
+      <h3>June 2026 — Industry Verticals</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Construction IT</div>
+        <div class="bt-title">IT Solutions for Construction Companies in Central Florida: From Blueprints to Broadband</div>
+        <div class="bt-meta">Keywords: construction IT Florida, construction company technology, field IT · <strong>CTA:</strong> Construction IT Consultation</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Construction IT</div>
+        <div class="bt-title">Field Worker Connectivity: How Polk County Construction Companies Use Cloud IT to Win More Jobs</div>
+        <div class="bt-meta">Keywords: field worker IT Florida, construction cloud, Polk County construction · <strong>CTA:</strong> Field IT Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Law Firms</div>
+        <div class="bt-title">Going Paperless: Microsoft 365 Document Management for Florida Law Firms</div>
+        <div class="bt-meta">Keywords: paperless law firm Florida, SharePoint legal, M365 document management · <strong>CTA:</strong> Law Firm IT Consultation</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- JULY -->
+    <div class="blog-month">
+      <h3>July 2026 — Summer Security &amp; Remote Work</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Cybersecurity</div>
+        <div class="bt-title">Summer Cybersecurity Threats: Why Florida Businesses Face Higher Risk in Q3</div>
+        <div class="bt-meta">Keywords: summer cybersecurity threats, Florida business security, Q3 IT risks · <strong>CTA:</strong> Free Vulnerability Scan</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Remote Work / Cloud</div>
+        <div class="bt-title">How to Set Up Secure Remote Work for Your Central Florida Team in 2026</div>
+        <div class="bt-meta">Keywords: secure remote work Florida, remote IT setup, work from home IT · <strong>CTA:</strong> Remote Work IT Package</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · VoIP</div>
+        <div class="bt-title">VoIP Phone Systems for Florida Businesses: 2026 Buyer's Guide</div>
+        <div class="bt-meta">Keywords: VoIP buyer guide Florida, business phone system 2026, hosted VoIP · <strong>CTA:</strong> Get a VoIP Quote</div>
+      </div>
+    </div>
+
+    <!-- AUGUST -->
+    <div class="blog-month">
+      <h3>August 2026 — Back to Business &amp; M365</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Managed IT</div>
+        <div class="bt-title">Back to Business IT Checklist: What Lakeland Companies Need Before Q4</div>
+        <div class="bt-meta">Keywords: back to business IT, Q4 IT checklist, Lakeland business IT · <strong>CTA:</strong> Schedule IT Review</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Microsoft 365</div>
+        <div class="bt-title">Microsoft 365 Licensing Audit: Are You Overpaying? A Florida Business Guide</div>
+        <div class="bt-meta">Keywords: M365 licensing audit, Microsoft 365 cost Florida, license optimization · <strong>CTA:</strong> Free M365 License Review</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Security Cameras</div>
+        <div class="bt-title">Security Camera Systems for Florida Businesses: What to Know Before You Buy</div>
+        <div class="bt-meta">Keywords: security cameras Florida business, IP camera system, commercial surveillance · <strong>CTA:</strong> Security Camera Consultation</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- SEPTEMBER -->
+    <div class="blog-month">
+      <h3>September 2026 — Hurricane Season &amp; Business Continuity</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Business Continuity</div>
+        <div class="bt-title">Hurricane Season IT Preparedness: A Disaster Recovery Guide for Central Florida Businesses</div>
+        <div class="bt-meta">Keywords: hurricane IT preparedness Florida, disaster recovery hurricane, FL business continuity · <strong>CTA:</strong> Download Hurricane Prep Checklist</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Business Continuity</div>
+        <div class="bt-title">Business Continuity Planning for Florida SMBs: How to Keep Operations Running Through Any Crisis</div>
+        <div class="bt-meta">Keywords: business continuity Florida SMB, BCP planning, IT disaster recovery · <strong>CTA:</strong> Business Continuity Consultation</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Healthcare / Cloud</div>
+        <div class="bt-title">Data Backup Strategies for Healthcare Practices in Lakeland, Tampa, and Orlando</div>
+        <div class="bt-meta">Keywords: healthcare data backup Florida, HIPAA backup, medical practice cloud backup · <strong>CTA:</strong> Healthcare Backup Assessment</div>
+      </div>
+    </div>
+
+    <!-- OCTOBER -->
+    <div class="blog-month">
+      <h3>October 2026 — Cybersecurity Awareness Month</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Cybersecurity</div>
+        <div class="bt-title">Cybersecurity Awareness Month 2026: Top 10 Threats Facing Florida Businesses Right Now</div>
+        <div class="bt-meta">Keywords: cybersecurity awareness month, top cyber threats Florida 2026 · <strong>CTA:</strong> Free Cybersecurity Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Healthcare / Legal</div>
+        <div class="bt-title">Phishing Attack Prevention for Central Florida Medical and Legal Offices</div>
+        <div class="bt-meta">Keywords: phishing prevention healthcare, phishing law firm, email security Florida · <strong>CTA:</strong> Email Security Assessment</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Alltek Brand</div>
+        <div class="bt-title">How Alltek's Alltimate Advantage Program Protects Florida Businesses From Cyber Threats</div>
+        <div class="bt-meta">Keywords: Alltek cybersecurity, managed security Florida, MSP cybersecurity program · <strong>CTA:</strong> Learn About Alltimate Advantage</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- NOVEMBER -->
+    <div class="blog-month">
+      <h3>November 2026 — Year-End Planning</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Managed IT</div>
+        <div class="bt-title">Year-End IT Audit: 10 Questions Every Lakeland Business Should Answer Before January</div>
+        <div class="bt-meta">Keywords: year end IT audit, IT review checklist, annual IT assessment · <strong>CTA:</strong> Schedule Year-End IT Review</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · Microsoft 365</div>
+        <div class="bt-title">Microsoft 365 Year-End Optimization: Clean Up Licenses, Storage &amp; Security Settings</div>
+        <div class="bt-meta">Keywords: M365 year end, Microsoft 365 audit, license cleanup · <strong>CTA:</strong> M365 Year-End Review</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Nonprofit IT</div>
+        <div class="bt-title">Nonprofit IT Services in Florida: Technology Grants and Budget Planning for 2027</div>
+        <div class="bt-meta">Keywords: nonprofit IT Florida, nonprofit technology grant, nonprofit managed IT · <strong>CTA:</strong> Nonprofit IT Consultation</div>
+      </div>
+    </div>
+
+    <!-- DECEMBER -->
+    <div class="blog-month">
+      <h3>December 2026 — Reflection &amp; 2027 Planning</h3>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 1 · Managed IT</div>
+        <div class="bt-title">2026 in Review: Top IT Trends That Shaped Central Florida Businesses — and What's Next</div>
+        <div class="bt-meta">Keywords: IT trends 2026 Florida, MSP trends, technology review · <strong>CTA:</strong> 2027 IT Planning Session</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 2 · AI / Innovation</div>
+        <div class="bt-title">AI-Powered IT Tools for Florida SMBs: What's Coming in 2027 and How to Prepare</div>
+        <div class="bt-meta">Keywords: AI tools small business Florida, AI IT tools 2027, business AI · <strong>CTA:</strong> AI Readiness Consultation</div>
+      </div>
+      <div class="blog-topic">
+        <div class="bt-num">Topic 3 · Managed IT (Evergreen)</div>
+        <div class="bt-title">How to Choose a Managed IT Provider in Lakeland, FL: The Complete 2027 Buyer's Guide</div>
+        <div class="bt-meta">Keywords: choose managed IT provider Lakeland, MSP buyer guide Florida 2027 · <strong>CTA:</strong> Compare Alltek vs other MSPs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-navy">
+    <h3>📝 Blog Publishing Guidelines</h3>
+    <ul style="padding-left:18px;font-size:13px;color:rgba(255,255,255,.9);line-height:2">
+      <li><strong style="color:#bbf7d0">Word count target:</strong> 1,200–1,800 words per post. Thin posts (&lt;400 words) are already dragging overall site quality — do not publish short posts.</li>
+      <li><strong style="color:#bbf7d0">FAQPage schema required on every post:</strong> Add JSON-LD FAQPage with 4–6 Q&amp;As to every new post. This is the #1 action for AI Overview citations.</li>
+      <li><strong style="color:#bbf7d0">Internal linking:</strong> Every post must link to at least 2 service pages and 2 other blog posts. Do not publish orphan content.</li>
+      <li><strong style="color:#bbf7d0">CTA on every post:</strong> Each post has a designated CTA above. Place it as a styled box in the middle and again at the bottom of the post.</li>
+      <li><strong style="color:#bbf7d0">Meta description required:</strong> Write a unique meta description for every post (150–160 chars). Do not leave blank.</li>
+      <li><strong style="color:#bbf7d0">Featured image:</strong> Include a relevant, properly alt-tagged featured image. Compress to WebP before uploading.</li>
+      <li><strong style="color:#bbf7d0">Author bio:</strong> All posts should list a named author (with photo) for E-E-A-T trust signals. AI systems favor sites with identifiable human experts.</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="site-footer">
+  Alltek Services — Performance Report 2026 &nbsp;|&nbsp; alltekservices.com &nbsp;|&nbsp; July 2026
+</div>
+
+<script>
+function showTab(id, e) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (e && e.currentTarget) e.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
